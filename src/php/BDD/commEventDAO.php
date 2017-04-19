@@ -3,7 +3,7 @@
 	include_once ('item.php');
 	include_once ('commEvent');
 	
-	class commEventDAO extends item
+	class commEventDAO implements item
 	{
 		 static function find(... $params)
                 {

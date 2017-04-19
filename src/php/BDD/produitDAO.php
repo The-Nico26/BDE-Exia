@@ -2,7 +2,7 @@
 	include_once ('item.php');
 	include_once ('produit.php');
 	
-	class ProduitDAO extends item
+	class ProduitDAO implements item
 	{
         static function find(... $params)
         {

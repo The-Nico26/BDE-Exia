@@ -3,7 +3,7 @@
 	include_once ('item.php');
 	include_once ('photo.php');
 	
-	class photoDAO extends item
+	class photoDAO implements item
 	{
 			static function find(... $params)
         {
@@ -18,8 +18,8 @@
         		$sql .= " WHERE ID_Photo = ?";
         	}
         	foreach(server::getRows($sql, $params) as $row){
-        		$album = Produit::create($row['ID_photo'], $row['URL']);
-        		array_push($resultat, $album);
+        		$photo = Produit::create($row['ID_photo'], $row['URL']);
+        		array_push($resultat, $photo);
         	}
         	
         	return $resultat;
@@ -30,7 +30,7 @@
         {
         	if(empty($photo)) return;
         	
-        	server::actionRow("DELETE FROM Photo WHERE ID_Photo = ?", $photo->$id);
+        	server::actionRow("DELETE FROM Photo WHERE ID_Photo = ?", $photo->id);
         }
         
         

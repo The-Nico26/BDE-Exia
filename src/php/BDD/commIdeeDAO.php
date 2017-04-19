@@ -3,7 +3,7 @@
 	include_once ('item.php');
 	include_once ('commIdee.php');
 	
-	class commIdeeDAO extends item
+	class commIdeeDAO implements item
 	{
 		function find(... $params)
         {

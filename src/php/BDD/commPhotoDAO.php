@@ -3,7 +3,7 @@
 	include_once ('item.php');
 	include_once ('commPhoto.php');
 	
-	class commPhotoDAO extends item
+	class commPhotoDAO implements item
 	{
 		static function find(... $params)
         {

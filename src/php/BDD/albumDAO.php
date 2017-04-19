@@ -4,7 +4,7 @@
 	include_once ('album.php');
 	
 	
-	class albumDAO extends item
+	class albumDAO implements item
 	{
 		static function find(... $params)
         {

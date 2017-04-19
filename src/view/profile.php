@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 include_once('../php/BDD/membreDAO.php');
 include_once('../php/header/head.php');
 $head->setup();
-$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/Document/shop.css\">");
+$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/Document/profil.css\">");
 $head->setTitle('Shop - BDE cesi');
 $head->getHead();
 require('../php/header/menu.php');
@@ -23,22 +23,24 @@ require('../php/header/menu.php');
         <button>Submit</button>
     </div>
     <div class="info">
-        <?php
-        foreach(membreDAO::find() as $row)
-        {?>
-            <div class="title">Nom :</div> <?= $row->nom ?> <br>
-            <div class="title">Prénom :</div> <?= $row->prenom ?> <br>
-            <div class="title">Mail :</div> <?= $row->mail ?> <br>
-            <?php
-        }
-        ?>
+        <div class="title">Nom :</div> <input type='text' name='nom'> <br>
+        <div class="title">Prénom :</div> <input type='text' name='prenom'><br>
+        <div class="title">Mail :</div> <input type='text' name='mail'><br>
     </div>
     <div class="btnsavebottom">
         <button>Submit</button>
     </div>
 </section>
 
-
+<?php
+foreach(membreDAO::find() as $row)
+{?>
+    <div class="title">Nom :</div> <?= $row->nom ?> <br>
+    <div class="title">Prénom :</div> <?= $row->prenom ?> <br>
+    <div class="title">Mail :</div> <?= $row->mail ?> <br>
+    <?php
+}
+?>
 
 
 

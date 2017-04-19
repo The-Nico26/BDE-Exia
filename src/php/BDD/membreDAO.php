@@ -2,7 +2,7 @@
 	include_once ('item.php');
 	include_once ('membre.php');
 	
-	class membreDAO extends item
+	class membreDAO implements item
 	{
         public $table = null;
 
@@ -13,7 +13,7 @@
 
         
         
-        function find(... $params)	
+        static function find(... $params)
         {
 			if(empty($params))
 			{
@@ -35,16 +35,16 @@
 			
 			return $resultat;
 		}
-		
-		
-    	 function remove($membre)
+
+
+        static function remove($membre)
         {
         	if(empty($membre)) return;
-        	server::actionRow('DELETE FROM Membre WHERE ID_Membre = ?', $membre->$id);
+        	server::actionRow('DELETE FROM Membre WHERE ID_Membre = ?', $membre->id);
         }
 
 
-        function update($membre)
+        static function update($membre)
         {
     		 if(empty($membre)) return;
     		 var_dump(membreDAO::find($membre->id));
