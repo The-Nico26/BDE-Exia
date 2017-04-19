@@ -2,9 +2,9 @@
     class server {
     	public static $pdo = null;
     	
-    	function connexion(){
+    	public static function connexion(){
     		try {
-				self::$pdo = new PDO('mysql:host=localhost;dbname=bde;charset=utf8', 'bde', 'cesi');
+				self::$pdo = new PDO('mysql:host=mysql;dbname=bde;charset=utf8', 'bde', 'cesi');
 				self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
 			catch (Exception $e){
@@ -12,7 +12,7 @@
 			}
     	}
     	
-    	function deconnexion(){
+    	public static function deconnexion(){
     		self::$pdo = null;
     	}
     	
