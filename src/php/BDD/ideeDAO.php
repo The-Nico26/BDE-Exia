@@ -4,7 +4,7 @@
 	
 	class ideeDAO extends item
 	{
-		function find(... $params)
+		static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -25,7 +25,7 @@
         }
         
         
-        function remove($idee)
+        static function remove($idee)
         {
         	if(empty($idee)) return;
         	
@@ -33,7 +33,7 @@
         }
 		
 		
-		function update($idee)
+		static function update($idee)
         {
         	if(empty($idee)) return;
         	var_dump(ideeDAO::find($idee->id));

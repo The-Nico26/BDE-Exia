@@ -6,7 +6,7 @@
 	
 	class albumDAO extends item
 	{
-		function find(... $params)
+		static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -27,7 +27,7 @@
         }
         
         
-         function remove($album)
+        static function remove($album)
         {
         	if(empty($album)) return;
         	
@@ -35,7 +35,7 @@
         }
         
         
-         function update($album)
+        static function update($album)
         {
         	if(empty($album)) return;
         	var_dump(albumDAO::find($album->id));

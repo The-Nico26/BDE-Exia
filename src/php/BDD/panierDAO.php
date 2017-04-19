@@ -5,7 +5,7 @@
 	
 	class panierDAO extends item
 	{
-		function find(... $params)
+		static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -26,7 +26,7 @@
         }
         
         
-        function remove($panier)
+        static function remove($panier)
         {
         	if(empty($panier)) return;
         	
@@ -34,7 +34,7 @@
         }
         
         
-        /*function update($panier)
+        /*static function update($panier)
         {
         	if(empty($panier)) return;
         	var_dump(ProduitDAO::find($panier->id));

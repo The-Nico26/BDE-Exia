@@ -5,7 +5,7 @@
 	
 	class photoDAO extends item
 	{
-			function find(... $params)
+			static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -26,7 +26,7 @@
         }
         
         
-        function remove($photo)
+        static function remove($photo)
         {
         	if(empty($photo)) return;
         	
@@ -34,7 +34,7 @@
         }
         
         
-        function update($photo)
+        static function update($photo)
         {
         	if(empty($photo)) return;
         	var_dump(photoDAO::find($photo->id));

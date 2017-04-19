@@ -6,7 +6,7 @@
 		public $description;
 		public $temps;
 		
-		function create($id, $description, $temps)
+		static function create($id, $description, $temps)
 		{
 			$commEvent = new commEvent();
 			
