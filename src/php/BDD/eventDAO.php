@@ -31,7 +31,7 @@
         {
         	if(empty($event)) return;
         	
-        	server::actionRow("DELETE FROM Event WHERE ID_Event = ?", $event->$id);
+        	server::actionRow("DELETE FROM Event WHERE ID_Event = ?", $event->id);
         }
         
         

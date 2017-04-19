@@ -4,7 +4,7 @@
 	include_once('../php/header/head.php');
 	$head->setup();
 	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/Document/shop.css\">");
-	$head->setTitle('Shop - BDE cesi');
+	$head->setTitle('shop - BDE cesi');
 	$head->getHead();
 	require('../php/header/menu.php');
 ?>

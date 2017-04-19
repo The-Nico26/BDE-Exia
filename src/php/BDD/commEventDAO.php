@@ -1,7 +1,7 @@
 <?php
 
 	include_once ('item.php');
-	include_once ('commEvent');
+	include_once ('commEvent.php');
 	
 	class commEventDAO implements item
 	{
@@ -30,10 +30,10 @@
                 {
                 	if(empty($commEvent)) return;
                 	
-                	server::actionRow("DELETE FROM CommEvent WHERE ID_CommEvent = ?", $commEvent->$id);
+                	server::actionRow("DELETE FROM CommEvent WHERE ID_CommEvent = ?", $commEvent->id);
                 }
         
-        static function update($$commEvent)
+        static function update($commEvent)
         {
         	if(empty($commEvent)) return;
         	var_dump(commEventDAO::find($commEvent->id));

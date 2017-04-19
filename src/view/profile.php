@@ -20,7 +20,7 @@ require('../php/header/menu.php');
 </section>
 <section class="profil">
     <div class="btnsavetop">
-        <button>Submit</button>
+        <button onclick="save()">Submit</button>
     </div>
     <div class="info">
         <div class="title">Nom :</div> <input type='text' name='nom'> <br>
@@ -28,16 +28,16 @@ require('../php/header/menu.php');
         <div class="title">Mail :</div> <input type='text' name='mail'><br>
     </div>
     <div class="btnsavebottom">
-        <button>Submit</button>
+        <button onclick="save()">Submit</button>
     </div>
 </section>
 
 <?php
 foreach(membreDAO::find() as $row)
 {?>
-    <div class="title">Nom :</div> <?= $row->nom ?> <br>
-    <div class="title">Prénom :</div> <?= $row->prenom ?> <br>
-    <div class="title">Mail :</div> <?= $row->mail ?> <br>
+    <div class="title">Nom :</div> <?= htmlspecialchars($_POST["nom"]); ?> <br>
+    <div class="title">Prenom :</div> <?= htmlspecialchars($_POST["prenom"]); ?> <br>
+    <div class="title">Mail :</div> <?= htmlspecialchars($_POST["mail"]); ?> <br>
     <?php
 }
 ?>
@@ -50,3 +50,29 @@ foreach(membreDAO::find() as $row)
 <script src="../js/jquery.js"></script>
 <script src="../js/metro.js"></script>
 <script src="../js/live.js"></script>
+<script>
+    function save(){
+        var nom = $("input[name=nom]").val();
+        var prenom = $("input[name=prenom]").val();
+        var mail = $("input[name=mail]").val();
+        var id = $("input[name=id]").val();
+        var data = "action=add&nom="+nom+"&prenom="+prenom+"&mail="+mail+"&id="+id;
+        send("../php/ajax/gestionProfile.php", data);
+    }
+    function modif(prenom, nom, mail, id){
+        $("input[name=nom]").val(nom);
+        $("input[name=prenom").val(prenom);
+        $("input[name=mail]").val(mail);
+        $("input[name=id]").val(id);
+    }
+    function net(){
+        $("input[name=prenom]").val("");
+        $("input[name=nom]").val("");
+        $("input[name=mail]").val("");
+        $("input[name=id]").val("-1");
+        $("textarea").val("");
+    }
+    function remove(id){
+        send("../php/ajax/gestionProfile.php", "action=remove&id="+id);
+    }
+</script>

@@ -1,5 +1,5 @@
 <?php
-	include_once 'server.php';
+	include_once ('server.php');
 	interface item
 	{
 		static function find(... $params);
