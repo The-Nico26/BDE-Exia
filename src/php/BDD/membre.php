@@ -5,11 +5,13 @@
 		public $id;
 		public $prenom;
 		public $nom;
-		public $role;
+		public $role = "Etudiant";
 		public $mail;
 		public $passWord;
+		public $promotion;
+		public $token = 0;
 		
-		function create ($id, $prenom, $nom, $role, $mail, $passWord)
+		function create ($id, $prenom, $nom, $role, $mail, $passWord, $promotion)
 		{
 			$membre = new membre();
 			
@@ -17,9 +19,10 @@
 			$membre->$prenom = $prenom;
 			$membre->$nom = $nom;
 			$membre->$mail = $mail;
-			$membre->$passWord = $password;
+			$membre->$role = $role;
+			$membre->$passWord = $passWord;
 			$membre->$promotion = $promotion;
-			$membre->$token = $token;
+
 			
 			return $membre;
 		}

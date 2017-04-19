@@ -23,9 +23,12 @@ require('../php/header/menu.php');
         <button onclick="save()">Submit</button>
     </div>
     <div class="info">
+        <input type="hidden" value="1" name="id">
         <div class="title">Nom :</div> <input type='text' name='nom'> <br>
         <div class="title">Prénom :</div> <input type='text' name='prenom'><br>
         <div class="title">Mail :</div> <input type='text' name='mail'><br>
+        <div class="title">PassWord :</div> <input type='text' name='passWord'><br>
+        <div class="title">Promotion :</div> <input type='text' name='promotion'><br>
     </div>
     <div class="btnsavebottom">
         <button onclick="save()">Submit</button>
@@ -38,6 +41,8 @@ foreach(membreDAO::find() as $row)
     <div class="title">Nom :</div> <?= htmlspecialchars($_POST["nom"]); ?> <br>
     <div class="title">Prenom :</div> <?= htmlspecialchars($_POST["prenom"]); ?> <br>
     <div class="title">Mail :</div> <?= htmlspecialchars($_POST["mail"]); ?> <br>
+    <div class="title">PassWord :</div> <?= htmlspecialchars($_POST["passWord"]); ?> <br>
+    <div class="title">Promotion :</div> <?= htmlspecialchars($_POST["promotion"]); ?> <br>
     <?php
 }
 ?>
@@ -49,20 +54,25 @@ foreach(membreDAO::find() as $row)
 </footer>
 <script src="../js/jquery.js"></script>
 <script src="../js/metro.js"></script>
-<script src="../js/live.js"></script>
+<script src="../js/site.js"></script>
 <script>
+    var data = "";
     function save(){
         var nom = $("input[name=nom]").val();
         var prenom = $("input[name=prenom]").val();
         var mail = $("input[name=mail]").val();
+        var passWord = $("input[name=passWord").val();
+        var promotion = $("input[name=promotion").val();
         var id = $("input[name=id]").val();
-        var data = "action=add&nom="+nom+"&prenom="+prenom+"&mail="+mail+"&id="+id;
+        data = "action=add&nom="+nom+"&prenom="+prenom+"&mail="+mail+"&passWord"+passWord+"&promotion"+promotion+"&id="+id;
         send("../php/ajax/gestionProfile.php", data);
     }
-    function modif(prenom, nom, mail, id){
+    function modif(prenom, nom, mail, passWord, promotion, id){
         $("input[name=nom]").val(nom);
         $("input[name=prenom").val(prenom);
         $("input[name=mail]").val(mail);
+        $("input[name=passWord]").val(passWord);
+        $("input[name=promotion]").val(promotion);
         $("input[name=id]").val(id);
     }
     function net(){

@@ -29,7 +29,7 @@ function send(page, para){
 		data : para,
 		dataType : "html",
 		success : function(html){
-			document.location.reload(true);
+			//document.location.reload(true);
 		}
 	});
 }
