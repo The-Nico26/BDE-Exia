@@ -46,6 +46,24 @@
 						 <br />
 						 <a href="albums.php?id=<?= $row->id ?>">Voir l'album</a>
 					</div>
+					<div class="formulaire">
+					  <?php
+					  	$nbr = count(server::getRows("SELECT * FROM participer WHERE ID_Membre = ? AND ID_Event = ?", '1', $row->id));
+					  	if($nbr == 0){?>
+					  <button onclick="inscript('<?= $row->id ?>', '1')">S'inscrire</button>
+					  <hr>
+					  <?php } ?>
+					  <?= $row->formulaire ?>
+					  <?php
+					  	if($nbr != 0){
+					  	?>
+					  	<hr>
+					  	<?php foreach(server::getRows("SELECT * FROM Membre JOIN participer ON Membre.ID_Membre = participer.ID_Membre WHERE participer.ID_Event = ?", $row->id) as $row){
+					  		echo "- ".$row['Nom']." ".$row['Prenom']." (".$row['Promotion'].")<br>";
+					  		}
+					  	}
+					  	?>
+					</div>
 				</div>
 			<?php
 				}
@@ -86,6 +104,9 @@
     	}
     	function remove(id){
     		send("../php/ajax/gestionEvent.php", "action=remove&id="+id);
+    	}
+    	function inscript(idE, idM){
+    		send("../php/ajax/gestionEvent.php", "action=inscription&idM="+idM+"&idE="+idE);
     	}
     </script>
 </body>

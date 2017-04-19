@@ -24,7 +24,9 @@
 		}
 		?>
 	</section>
-
+	<section class="addImage">
+		te
+	</section>
 	<section class="master">
 			<div class="photos">
 				<div class="photo">

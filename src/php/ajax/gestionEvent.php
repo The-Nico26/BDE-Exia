@@ -20,16 +20,26 @@
 					$v->idAlbum = server::getRows("SELECT * FROM Album ORDER BY ID_Album DESC LIMIT 1", null)[0]['ID_Album'];
 					
 				}
-				echo $v->idAlbum."--<>--";
 				eventDAO::Update($v);
 			}
 		} else if($action == "remove") {
 			if(isset($_POST['id'])){ 
 				$id = $_POST['id'];
 				include_once '../BDD/eventDAO.php';
+				include_once '../BDD/albumDAO.php';
 				
-				$v = event::Create($id, "", "", "", "", "", "");
+				$v = eventDAO::Find($id)[0];
+				$p = albumDAO::Find($v->idAlbums);
+				albumDAO::Remove($p);
 				eventDAO::Remove($v);
+			}
+		} else if($action == "inscription"){
+			if(isset($_POST['idM']) && isset($_POST['idE'])){
+				$idM = $_POST['idM'];
+				$idE = $_POST['idE'];
+				include_once '../BDD/eventDAO.php';
+				
+				server::actionRow("INSERT INTO participer VALUES ('$idM', '$idE')");
 			}
 		}
 	}
