@@ -62,6 +62,7 @@
 .listphoto > .onephoto > img {
 	margin: 5px;
 	border: 2px solid black;
+	width: 25%;
 }
 
 @media screen and (max-width:1000px){

@@ -74,7 +74,7 @@
         <script src="../js/metro.js"></script>
         <script>
         	function showAll(){
-        		window.location.assign("idee.php");
+        		window.location.assign("idees.php");
         	}
         </script>
 	</body>

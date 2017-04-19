@@ -1,10 +1,10 @@
 <?php
 
+    require 'album.php';
 	include_once ('item.php');
-	include_once ('album.php');
 	
 	
-	class albumDAO extends item
+	class albumDAO implements item
 	{
 		static function find(... $params)
         {
@@ -19,8 +19,8 @@
         		$sql .= " WHERE ID_Album = ?";
         	}
         	foreach(server::getRows($sql, $params) as $row){
-        		$album = album::create($row['ID_Album'], $row['Titre'], $row['Description']);
-        		array_push($resultat, $album);
+        		$a = album::create($row['ID_Album'], $row['Titre'], $row['Description']);
+        		array_push($resultat, $a);
         	}
         	
         	return $resultat;

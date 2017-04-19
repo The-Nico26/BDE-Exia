@@ -9,7 +9,7 @@
 		public $calendrier;
 		public $lieu;
 		
-		function create($id, $titre, $description, $formulaire, $calendrier, $lieu)
+		static function create($id, $titre, $description, $formulaire, $calendrier, $lieu)
 		{
 			$event = new event();
 		

@@ -1,11 +1,11 @@
 <?php
 
 	include_once ('item.php');
-	include_once ('photo.php');
+	require ('photo.php');
 	
-	class photoDAO extends item
+	class photoDAO implements item
 	{
-			static function find(... $params)
+		static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -18,7 +18,7 @@
         		$sql .= " WHERE ID_Photo = ?";
         	}
         	foreach(server::getRows($sql, $params) as $row){
-        		$album = Produit::create($row['ID_photo'], $row['URL']);
+        		$photo = Photo::create($row['ID_Photo'], $row['URL']);
         		array_push($resultat, $photo);
         	}
         	

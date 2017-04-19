@@ -10,7 +10,7 @@
 		public $calendrier;
 		
 		
-		function create ($id, $titre, $description, $pbleu, $prouge)
+		static function create ($id, $titre, $description, $pbleu, $prouge)
 		{
 			$idee = new idee();
 			

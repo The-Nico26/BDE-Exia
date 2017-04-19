@@ -1,8 +1,8 @@
 <?php
 	include_once 'server.php';
-	abstract class item
+	interface item
 	{
-		abstract static function find(... $params);
-		abstract static function remove($variable);
-		abstract static function update($variable);
+		static function find(... $params);
+		static function remove($variable);
+		static function update($variable);
 	}

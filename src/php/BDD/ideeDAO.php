@@ -1,8 +1,8 @@
 <?php
 	include_once ('item.php');
-	include_once ('idee.php');
+	require 'idee.php';
 	
-	class ideeDAO extends item
+	class ideeDAO implements item
 	{
 		static function find(... $params)
         {

@@ -3,13 +3,16 @@
 		
 		$action = $_POST['action'];
 		if($action == "add"){
-			if(isset($_POST['nom']) && isset($_POST['url']) && isset($_POST['prix']) && isset($_POST['description'])){
-				$nom = $_POST['nom'];
-				$url = $_POST['url'];
-				$prix = $_POST['prix'];
+			if(isset($_POST['titre']) && isset($_POST['calendrier']) && isset($_POST['description']) && isset($_POST['id'] && isset($_POST['formulaire'])  && isset($_POST['lieu']){
+				$titre = $_POST['titre'];
+				$calendrier = $_POST['calendrier'];
 				$description  = $_POST['description'];
+				$id  = $_POST['id'];
+				$lieu  = $_POST['lieu'];
+				$formulaire  = $_POST['formulaire'];
+
 				include_once '../BDD/produitDAO.php';
-				$v = Produit::Create($_POST['id'], $nom, $description , $prix , $url);
+				$v = Produit::Create($id, $titre, $description , $formulaire , $calendrier);
 				
 				ProduitDAO::Update($v);
 			}
