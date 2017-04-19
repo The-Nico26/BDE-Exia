@@ -6,7 +6,7 @@
 		public $prix;
 		public $description;
 		
-		function create($id, $name, $description, $prix, $image){
+		static function create($id, $name, $description, $prix, $image){
 			$p = new Produit();
 			$p->id = $id;
 			$p->name = $name;

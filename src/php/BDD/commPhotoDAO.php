@@ -5,7 +5,7 @@
 	
 	class commPhotoDAO extends item
 	{
-		function find(... $params)
+		static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -26,7 +26,7 @@
         }
         
         
-        function remove($commPhoto)
+        static function remove($commPhoto)
         {
         	if(empty($commPhoto)) return;
         	
@@ -34,7 +34,7 @@
         }
         
         
-        function update($commPhoto)
+        static function update($commPhoto)
         {
         	if(empty($commPhoto)) return;
         	var_dump(ProduitDAO::find($commPhoto->id));

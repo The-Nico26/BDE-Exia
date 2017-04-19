@@ -2,7 +2,7 @@
 	include_once 'server.php';
 	abstract class item
 	{
-		abstract protected function find(... $params);
-		abstract protected function remove($variable);
-		abstract protected function update($variable);
+		abstract static function find(... $params);
+		abstract static function remove($variable);
+		abstract static function update($variable);
 	}

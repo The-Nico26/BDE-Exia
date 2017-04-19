@@ -6,7 +6,7 @@
 	class eventDAO extends item
 	{
 		
-		function find(... $params)
+		static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -27,7 +27,7 @@
         }
         
         
-        function remove($event)
+        static function remove($event)
         {
         	if(empty($event)) return;
         	
@@ -35,7 +35,7 @@
         }
         
         
-        function update($event)
+        static function update($event)
         {
         	if(empty($event)) return;
         	var_dump(ProduitDAO::find($event->id));

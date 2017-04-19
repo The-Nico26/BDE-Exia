@@ -5,7 +5,7 @@
 		public $id;
 		public $url;
 		
-		function create ($id, $url)
+		static function create ($id, $url)
 		{
 			$photo = new photo();
 			

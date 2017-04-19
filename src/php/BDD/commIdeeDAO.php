@@ -5,7 +5,7 @@
 	
 	class commIdeeDAO extends item
 	{
-		function find(... $params)
+		static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -26,7 +26,7 @@
         }
         
         
-        function update($commIdee)
+        static function update($commIdee)
         {
         	if(empty($commIdee)) return;
         	var_dump(ProduitDAO::find($commIdee->id));

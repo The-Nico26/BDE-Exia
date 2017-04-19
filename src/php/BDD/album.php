@@ -6,7 +6,7 @@
 		public $titre;
 		public $description;
 		
-		function create($id, $titre, $description)
+		static function create($id, $titre, $description)
 		{
 			$album = new album();
 			

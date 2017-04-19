@@ -4,7 +4,7 @@
 	
 	class ProduitDAO extends item
 	{
-        function find(... $params)
+        static function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -24,14 +24,14 @@
         	return $resultat;
         }
 
-        function remove($produit)
+        static function remove($produit)
         {
         	if(empty($produit)) return;
         	
         	server::actionRow("DELETE FROM Produit WHERE ID_Produit = ?", $produit->id);
         }
 
-        function update($p)
+        static function update($p)
         {
         	if(empty($p)) return;
         	var_dump(ProduitDAO::find($p->id));
