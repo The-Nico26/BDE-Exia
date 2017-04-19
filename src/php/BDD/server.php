@@ -4,7 +4,7 @@
     	
     	public static function connexion(){
     		try {
-				self::$pdo = new PDO('mysql:host=mysql;dbname=bde;charset=utf8', 'bde', 'cesi');
+				self::$pdo = new PDO('mysql:host=mysql;de=bde;charset=utf8', 'bde', 'cesi');
 				self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
 			catch (Exception $e){
