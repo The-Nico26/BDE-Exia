@@ -1,0 +1,42 @@
+.title {
+	position:absolute;
+	background-color:white;
+	border: 2px groove #6B9BEA;
+	margin-top: -5vh;
+	height:10vh;
+	line-height:10vh;
+	font-size: 25pt;
+	margin-left: 25vw;
+	width:50vw;
+	text-align:center;
+}
+.tileheigt{
+	height: 7vh;
+}
+.panier {
+	margin: 0 20vw;
+	width: 60vw;
+}
+.produit, .header {
+	display : flex;
+	flex-direction: row;
+	border: 2px groove #CC615A;
+	background-color: rgb(225,225,225);
+}
+
+.produit > .column, .header > .column  {
+	flex : 1;
+	text-align : center;
+	min-height: 50px;
+	line-height: 50px;
+}
+
+.panier > .produit {
+	margin: 15px 0;
+}
+.panier > .produit > .column {
+	line-height: 100px;
+}
+.panier > .produit > .column > img {
+	margin: 5px;
+}

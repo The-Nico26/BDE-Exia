@@ -1,0 +1,76 @@
+<!-- Fonctionnel prêt à être envoyé !-->
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta charset="utf-8">
+        <link href="../css/metro.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/nico.css">
+        <link rel="stylesheet" type="text/css" href="../css/Document/event.css">
+        <title>Event - BDE cesi</title>
+    </head>
+    <body>
+		<div class="background">
+			<div class="container"></div>
+		</div>
+		<nav>
+			<div class="link">
+				<a href="#"><div>Accueil</div></a>
+				<a href="#"><div>Evènement</div></a>
+				<span class="logo"><img src="../img/logo.png"></span>
+				<a href="#"><div>Association</div></a>
+				<a href="#"><div>Boutique</div></a>
+				<a class="connect" href="#"><div><i class="fa fa-user"></i></div></a>
+			</div>
+		</nav>
+		
+<form action="event.php" method="post">		
+		<section class="tileheigt">
+			<div class="req">
+				Titre :
+				<input  type="text" name="titre">
+			</div>
+		</section>
+		
+		<section class="box">
+			<div class="section">
+				<div class="titre">
+				Second	Titre :
+				 <input type="text" name="titre2">
+				</div>
+				<div class="text">
+					Description de l'événement :
+					<textarea rows="10" cols="70" name="desc" required maxlenght="30"></textarea>
+				</div>
+			</div>
+			<div class="formulaire">
+				Organisateur
+				<div class="cont">
+					<input type="text" name="org">
+				</div>
+				Contact (mail/tel)
+				<div class="cont">
+						<input type="text" name="mail">
+							<input type="text" name="tel">
+				</div>
+				Lieu
+				<div class="cont">
+						<input type="text" name="lieu">
+				</div>
+				Date
+				<div class="cont">
+						<input type="text" name="date">
+				</div>
+			</div>
+			<div class="btns">
+				<input type="submit" name="event">			
+			</div>
+		</section>
+</form>
+		<footer>
+			Copyright
+		</footer>
+        <script src="../js/live.js"></script>
+	</body>
+</html>

@@ -1,0 +1,86 @@
+.title {
+	position:absolute;
+	background-color:white;
+	border: 2px groove #6B9BEA;
+	margin-top: -5vh;
+	height:10vh;
+	line-height:10vh;
+	font-size: 25pt;
+	margin-left: 25vw;
+	width:50vw;
+	text-align:center;
+}
+.tileheigt > .logo {
+	position: absolute;
+	height: 10vh;
+	width: 10vh;
+	margin-left: 23vw;
+	margin-top: -10vh;
+	border: 2px groove #6B9BEA;
+	background-size: cover;
+	z-index: 100;
+}
+.photos {
+	display:flex;
+}
+.photo, .listphoto{
+	text-align:center;
+	width:50%;
+	padding-top:5vh;
+}
+.photo > img{
+	width: 40vw;
+	border:2px solid;
+}
+.photo > .description {
+	position:absolute;
+	margin-left:calc(2px - 40vw);
+	max-width:calc(40vw - 4px);
+	width:calc(40vw - 4px);
+	min-height: 18pt;
+	line-height:17pt;
+	border-bottom: 4px groove blue;
+	text-align:center;
+	background-color: rgba(15,15,15,.5);
+	color:white;
+	text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+.listphoto {
+	display:flex;
+	flex-wrap: wrap;
+	width: 100vw;
+	background-color:rgba(150,150,150,1);
+	padding-top: 15px;
+}
+
+.listphoto > .onephoto {
+	flex: 1;
+	width: 25vw;
+	height:auto;
+}
+.listphoto > .onephoto > img {
+	margin: 5px;
+	border: 2px solid black;
+}
+
+@media screen and (max-width:1000px){
+	.photos {
+		flex-wrap: wrap;
+	}
+	.photo, .listphoto{
+		width:100%;
+	}
+}
+@media screen and (min-width:1000px){
+	.photos {
+		flex-direction: row;
+		background-color:rgba(200,200,200,1);
+	}
+	.photo {
+		padding-top: 10vh;
+	}
+	.listphoto{
+		padding-top: 7vh;
+	}
+}

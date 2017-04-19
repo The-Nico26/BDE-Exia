@@ -1,0 +1,33 @@
+.back{
+	background-color: rgba(255,255,255,.7);
+	height:12pc;
+}
+
+.titre{
+	position:relative;
+	margin-top: -2vh;
+	height:3vh;
+	line-height:10vh;
+	font-size: 18pt;
+	margin-left: 25vw;
+	width:50vw;
+	text-align: center;
+}
+
+.corpus{
+	position: relative;
+	margin : 3pc 25%;
+	text-align: center;
+	background-color:white;
+	border: 2px groove #6B9BEA;
+	min-height: 10pc;
+	white-space: pre-line;
+	
+}
+
+.btns{
+	position : relative;
+	text-align: center;
+	margin-top: -2pc;
+}
+

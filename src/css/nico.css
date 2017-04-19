@@ -1,0 +1,77 @@
+/*---------------------------------------------------------------------------*/
+/*--------------------------Container----------------------------------------*/
+/*---------------------------------------------------------------------------*/
+.background {
+	background:url('https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.myfreeproductsamples.com%2Fwp-content%2Fuploads%2F2015%2F07%2Fminion.jpg&f=1') no-repeat 0 45%;
+	background-size:cover;
+    position:fixed;
+    width: 100vw;
+	height: 40vh;
+	z-index: -100;
+}
+.background > .container{
+	background-color: rgba(12,12,12,.5);
+    width: 100vw;
+	height: 40vh;
+}
+.body {
+}
+/*---------------------------------------------------------------------------*/
+/*--------------------------Navigation--------------------------------------*/
+/*---------------------------------------------------------------------------*/
+nav {
+	height: 40vh;
+	padding-bottom: 4vh;
+}
+nav > .link {
+	display: flex;
+	flex-direction: row;
+	line-height: 25pt;
+	background-color: white;
+	color: #6B9BEA;
+	font-size: 19pt;
+	padding-left: 5vw;
+}
+.link > .logo {
+	text-align: left;
+	position: relative;
+}
+.link > .logo > img {
+	position:absolute;
+	height: auto;
+	padding-left: 4vw;
+	
+	max-height: 15vh;
+	max-width: 100%;
+}
+.link > a, .link > span {
+	flex:1;
+	text-align: center;
+	color:inherit;
+}
+.link > a {
+	height:40px;
+	line-height: 40px;
+	white-space: nowrap;
+	padding: 0 10px;
+}
+.link > .connect{
+	padding: 0 2px;
+	max-width: 5vw;
+}
+.link > a:hover {
+	background-color: rgba(255,255,0,.5);
+}
+
+/*---------------------------------------------------------------------------*/
+/*--------------------------Footer-------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+footer{
+	background-color:white;
+	line-height:35pt;
+	height:35pt;
+	text-align:center;
+	font-weight:bold;
+	color: #6B9BEA;
+	border-top: 5px groove #6B9BEA;
+}

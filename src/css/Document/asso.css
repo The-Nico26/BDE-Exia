@@ -1,0 +1,110 @@
+.situation > .numero {
+	position:absolute;
+	margin-top:-15vh;
+	left:calc(50% - 50px);
+}
+.situation > .numero > .numero_left {
+	position: absolute;
+	border-left: 2px groove #CC615A;
+	border-bottom: 2px groove #CC615A;
+	height: 50px;
+	width: 50px;
+	background-color: rgba(255,255,255,1);
+	transform: rotate(45deg) translateY(18px) translateX(-18px);
+}
+.situation > .numero > .numero_center{
+	position: absolute;
+	border-top: 2px groove #CC615A;
+	border-bottom: 2px groove #6B9BEA;
+	height: 70px;
+	background-color: rgba(255,255,255,1);
+	transform: translateY(-10px);
+  	white-space: nowrap;
+}
+.situation > .numero > .numero_center > .numero_text{
+	text-align: center;
+	font-weight: bold;
+	height: 100%;
+	line-height: 65px;
+	font-size:18pt;
+	z-index:200;
+}
+.situation > .numero > .numero_center > .numero_right{
+	position: absolute;
+	background-color: rgba(255,255,255,1);
+	z-index:-200;
+	height: 49px;
+	width: 50px;
+	border-top: 2px groove #CC615A;
+	border-right: 2px groove #6B9BEA;
+	transform: rotate(45deg) translateY(24px) translateX(-11px);
+}
+
+/*---------------------------------------------------------------------------*/
+/*--------------------------Asso---------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+.asso {
+	display: flex;
+	margin: 0 15px;
+	margin-top: 10px;
+	flex-wrap: wrap;
+}  
+
+.asso > .cadre {
+	flex: 1;
+	margin: 0 15px;
+	background-color: rgba(255,255,255,.8);
+	margin-bottom: 30px;
+	border: 2px solid black;
+	min-width: 33vw;
+}
+.asso > .cadre > .content{
+	display : flex;
+	flex-direction: row;
+	position: relative;
+}
+.asso > .cadre > .content > .left .right{
+	flex:1;
+	display: block;
+}
+
+.asso > .cadre > .content > .left {
+	text-align : justify;
+	margin-right: 20%;
+	min-height: 50px;
+	padding-top : 10px;
+	padding-left: 10px;
+}
+.asso > .cadre > .content > .left > .title {
+	font-weight: bold;
+	size: 15pt;
+	text-align:center;
+	margin-bottom: 15px;
+}
+.asso > .cadre > .content > .right{
+	position: absolute;
+	right:0;
+	margin-top: -30px;
+	margin-right: -30px;
+}
+.asso > .cadre > .content > .right > img {
+	height:100px;
+	max-height:100px;
+}
+.asso > .cadre > .bottom {
+	height: 25px;
+	text-align : center;
+	margin-top: 10px;
+}
+.asso > .cadre > .bottom > button{
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
+}
+.asso > .cadre > .bottom > .taff {
+	float:right;
+	line-height: 25px;
+	padding-right: 15px;
+	text-align: left;
+	margin-top: -10px;
+}

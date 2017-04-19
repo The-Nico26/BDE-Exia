@@ -1,0 +1,75 @@
+.title {
+	position:absolute;
+	background-color:white;
+	border: 2px groove #6B9BEA;
+	margin-top: -5vh;
+	height:10vh;
+	line-height:10vh;
+	font-size: 25pt;
+	margin-left: 25vw;
+	width:50vw;
+	text-align:center;
+}
+.tileheigt{
+	height:6vh;
+}
+
+.cate{
+	display:flex;
+	flex-direction:row;
+	margin: 0 15vw;
+	border: 2px groove #6B9BEA;
+	background-color:white;
+}
+.cate > a {
+	flex:1;
+	text-align:center;
+	background-color: rgba(200,200,200,1);
+	color:black;
+	line-height: 20pt;
+	height: 20pt;
+}
+.cate > a:hover {
+	background-color: rgba(100,100,100,1);
+	color:white;
+}
+
+.produits {
+	display:flex;
+	flex-wrap: wrap;
+	margin: 15px 5vw;
+}
+
+.produits > .produit {
+	width: 25vw;
+	min-height: 150px;
+	border: 2px groove #6B9BEA;
+	display: flex;
+	flex-direction: row;
+	margin: 5px 2vw;
+	background-color:white;
+}
+.produits > .produit > * {
+	flex: 1;
+	text-align:center;
+	min-height: 125px;
+	position:relative;
+}
+.produit > .logo {
+	border-right: 2px groove black;
+	height: 100%;
+}
+.produit > .logo > img {
+	height:100%;
+}
+.produit > .description {
+	line-height: 20px;
+}
+.produit > .description > input, .produit > .description > textarea{
+	width: 80%;
+}
+.produit >  .description > button {
+	margin: 15px 0;
+	text-align:center;
+	width: 50%;
+}
