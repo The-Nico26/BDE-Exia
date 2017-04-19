@@ -28,6 +28,7 @@ button {
 /*---------------------------------------------------------------------------*/
 .body{
 	margin:0 5vw;
+	margin-bottom: 25px;
 }
 .idees > .idee{
 	position:relative;
@@ -125,11 +126,6 @@ button {
 	border: 2px groove;
 	margin: 0 15px;
 }
-/*
-.box > .section {
-	min-width: 40vw;
-}
-*/
 
 /*---------------------------------------------------------------------------*/
 /* Tu peut continuer maintenant */

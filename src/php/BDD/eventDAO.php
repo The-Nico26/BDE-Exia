@@ -1,7 +1,7 @@
 <?php
 	
 	include_once ('item.php');
-	include_once ('event.php');
+	require ('event.php');
 	
 	class eventDAO implements item
 	{
@@ -19,8 +19,9 @@
         		$sql .= " WHERE ID_Event = ?";
         	}
         	foreach(server::getRows($sql, $params) as $row){
-        		$event = event::create($row['ID_Event'], $row['Titre'], $row['Description'], $row['Formulaire'], $row['Calendrier'], $row['Lieu']);
-        		array_push($resultat, $event);
+        		$event = event::create($row['ID_Event'], $row['Titre'], $row['Description'], $row['Formulaire'], $row['Calendrier'], $row['Lieu'], $row['ID_Album']);
+
+                array_push($resultat, $event);
         	}
         	
         	return $resultat;
@@ -38,14 +39,12 @@
         static function update($event)
         {
         	if(empty($event)) return;
-        	var_dump(ProduitDAO::find($event->id));
-        	echo "<br>".$event->id."<br>";
+        	var_dump(EventDAO::find($event->id));
         	
-        	if(count(ProduitDAO::find($event->id)) != 0){
-        		server::actionRow("UPDATE Event SET Titre = ?, Description = ?, Formulaire = ?, Calendrier = ?, Lieu = ? WHERE ID_Event = ?", $event->titre, $event->description, $event->formulaire,
-        		$event->calendrier, $event->lieu, $event->id);
+        	if(count(EventDAO::find($event->id)) != 0){
+        		server::actionRow("UPDATE Event SET Titre = ?, Description = ?, Formulaire = ?, Calendrier = ?, Lieu = ? WHERE ID_Event = ?", $event->titre, $event->description, $event->formulaire, $event->calendrier, $event->lieu, $event->id);
         	} else {
-        		server::actionRow("INSERT INTO Event VALUES('', ?, ?, ?, ?, ?)", $event->titre, $event->description, $event->formulaire, $event->calendrier, $event->lieu);
+        		server::actionRow("INSERT INTO Event VALUES(null, ?, ?, ?, ?, ?, ?)", $event->titre, $event->description, $event->formulaire, $event->calendrier, $event->lieu, $event->idAlbums);
         	}
         }
 	}

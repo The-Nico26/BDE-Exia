@@ -14,7 +14,7 @@
 					<div class="content add">
 						<input type="hidden" name="id" value="-1">
 						Titre :<br /> <input type="text" name="titre"><br />
-						Date :<br /> <input type="date" name="calendrier"><br />
+						Date :<br /> <input type="date" name="calendrier" placeholder="aaaa-mm-jj"><br />
 						Lieu :<br /> <input type="text" name="lieu"><br />
 						Formulaire :<br /> <textarea name="formulaire"></textarea><br />
 						Description :<br /> <textarea name="description"></textarea> <br />
