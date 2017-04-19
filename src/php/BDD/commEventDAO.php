@@ -34,16 +34,16 @@
         }
         
         
-        function update($$commEvent)
+        function update($commEvent)
         {
         	if(empty($commEvent)) return;
-        	var_dump(ProduitDAO::find($commEvent->id));
+        	var_dump(commEventDAO::find($commEvent->id));
         	echo "<br>".$commEvent->id."<br>";
         	
-        	if(count(ProduitDAO::find($commEvent->id)) != 0){
+        	if(count(commEventDAO::find($commEvent->id)) != 0){
         		server::actionRow("UPDATE CommEvent SET Description = ?, Temps = ? WHERE ID_commEvent = ?", $commEvent->description, $commEvent->temps, $commEvent->id);
         	} else {
-        		server::actionRow("INSERT INTO Produit VALUES('', ?, ?)", $p->description, $p->temps);
+        		server::actionRow("INSERT INTO Produit VALUES('', ?, ?)", $commEvent->description, $commEvent->temps);
         	}
         }
 	}

@@ -36,10 +36,10 @@
         function update($permission)
         {
         	if(empty($permission)) return;
-        	var_dump(ProduitDAO::find($permission->id));
+        	var_dump(permissionDAO::find($permission->id));
         	echo "<br>".$permission->id."<br>";
         	
-        	if(count(ProduitDAO::find($permission->id)) != 0){
+        	if(count(permissionDAO::find($permission->id)) != 0){
         		server::actionRow("UPDATE Permission SET Nom = ? WHERE ID_Permission = ?", $p->nom $p->id);
         	} else {
         		server::actionRow("INSERT INTO Permission VALUES('', ?)", $p->nom);

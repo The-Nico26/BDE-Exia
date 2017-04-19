@@ -29,11 +29,11 @@
         function update($commIdee)
         {
         	if(empty($commIdee)) return;
-        	var_dump(ProduitDAO::find($commIdee->id));
+        	var_dump(commIdeeDAO::find($commIdee->id));
         	echo "<br>".$commIdee->id."<br>";
         	
-        	if(count(ProduitDAO::find($commIdee->id)) != 0){
-        		server::actionRow("UPDATE CommIdee SET Description = ?, temps = ? WHERE ID_CommIdee = ?", $commIdee->description, $commIdee->temps, $p->id);
+        	if(count(commIdeeDAO::find($commIdee->id)) != 0){
+        		server::actionRow("UPDATE CommIdee SET Description = ?, temps = ? WHERE ID_CommIdee = ?", $commIdee->description, $commIdee->temps, $commIdee->id);
         	} else {
         		server::actionRow("INSERT INTO Produit VALUES('', ?, ?, ?, ?)", $commIdee->description, $commIdee->temps);
         	}

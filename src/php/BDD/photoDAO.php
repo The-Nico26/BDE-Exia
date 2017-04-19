@@ -19,7 +19,7 @@
         	}
         	foreach(server::getRows($sql, $params) as $row){
         		$album = Produit::create($row['ID_photo'], $row['URL']);
-        		array_push($resultat, $photo);
+        		array_push($resultat, $album);
         	}
         	
         	return $resultat;
@@ -37,10 +37,10 @@
         function update($photo)
         {
         	if(empty($photo)) return;
-        	var_dump(ProduitDAO::find($photo->id));
+        	var_dump(photoDAO::find($photo->id));
         	echo "<br>".$photo->id."<br>";
         	
-        	if(count(ProduitDAO::find($photo->id)) != 0){
+        	if(count(photoDAO::find($photo->id)) != 0){
         		server::actionRow("UPDATE Photo SET URL = ? WHERE ID_Produit = ?", $photo->url, $photo->id);
         	} else {
         		server::actionRow("INSERT INTO Produit VALUES('', ?)", $photo->url);

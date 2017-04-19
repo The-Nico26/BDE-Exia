@@ -38,10 +38,10 @@
         function update($event)
         {
         	if(empty($event)) return;
-        	var_dump(ProduitDAO::find($event->id));
+        	var_dump(eventDAO::find($event->id));
         	echo "<br>".$event->id."<br>";
         	
-        	if(count(ProduitDAO::find($event->id)) != 0){
+        	if(count(eventDAO::find($event->id)) != 0){
         		server::actionRow("UPDATE Event SET Titre = ?, Description = ?, Formulaire = ?, Calendrier = ?, Lieu = ? WHERE ID_Event = ?", $event->titre, $event->description, $event->formulaire,
         		$event->calendrier, $event->lieu, $event->id);
         	} else {

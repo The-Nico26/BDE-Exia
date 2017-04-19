@@ -38,10 +38,10 @@
          function update($album)
         {
         	if(empty($album)) return;
-        	var_dump(ProduitDAO::find($album->id));
-        	echo "<br>".$p->id."<br>";
+        	var_dump(albumDAO::find($album->id));
+        	echo "<br>".$album->id."<br>";
         	
-        	if(count(ProduitDAO::find($album->id)) != 0){
+        	if(count(albumDAO::find($album->id)) != 0){
         		server::actionRow("UPDATE Album SET Titre = ? WHERE ID_Album = ?", $album->titre, $album->description, $album->id);
         	} else {
         		server::actionRow("INSERT INTO Produit VALUES('', ?, ?)", $album->titre, $album->description);

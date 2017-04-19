@@ -11,24 +11,6 @@
             self::$table = $t;
         }
 
-        /*function find($champ, $condition)
-        {
-        	$resultatBDD = server::getRows("SELECT * FROM Membre WHERE ? = ?", array($champ, $condition) );
-        	
-        	$resultat = [];
-        	
-        	foreach ($resultatBDD as $ligne)
-        	{
-        		$nouveauMembre = new self(
-        							$ligne["Prenom"],
-        							$ligne["Nom"],
-        							$ligne["Role"],
-        							$ligne["Mail"],
-        							$ligne["PassWord"]);
-        						$nouveauMembre->id = $ligne["ID_Membre"];
-        		array_push($resultat, $nouveauMembre);
-        	}
-        }*/
         
         
         function find(... $params)	
@@ -38,7 +20,7 @@
 				$param = null;
 			}
 			$resultat = [];
-			$sql = "SELECT * FROM Membre"
+			$sql = "SELECT * FROM Membre";
 			
 			if($params != null)
 			{
@@ -65,7 +47,7 @@
         function update($membre)
         {
     		 if(empty($membre)) return;
-    		 var_dump(ProduitDAO::find($membre->id));
+    		 var_dump(membreDAO::find($membre->id));
     		 echo "<br>".$membre->id."<br>";
         
     		 if(count(membreDAO::find($membre->id)) != 0)

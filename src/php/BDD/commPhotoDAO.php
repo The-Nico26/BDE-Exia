@@ -37,11 +37,11 @@
         function update($commPhoto)
         {
         	if(empty($commPhoto)) return;
-        	var_dump(ProduitDAO::find($commPhoto->id));
+        	var_dump(commPhotoDAO::find($commPhoto->id));
         	echo "<br>".$commPhoto->id."<br>";
         	
-        	if(count(ProduitDAO::find($commPhoto->id)) != 0){
-        		server::actionRow("UPDATE CommPhoto SET Description = ?, Temps = ? WHERE ID_CommPhoto = ?", $commPhoto->description, cCommPhoto->temps, $commPhoto->id);
+        	if(count(commPhotoDAO::find($commPhoto->id)) != 0){
+        		server::actionRow("UPDATE CommPhoto SET Description = ?, Temps = ? WHERE ID_CommPhoto = ?", $commPhoto->description, $commPhoto->temps, $commPhoto->id);
         	} else {
         		server::actionRow("INSERT INTO CommPhoto VALUES('', ?, ?, ?, ?)", $commPhoto->description, $commPhoto->temps);
         	}
