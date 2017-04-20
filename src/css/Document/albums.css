@@ -1,4 +1,4 @@
-.title {
+.tileheigt > .title {
 	position:absolute;
 	background-color:white;
 	border: 2px groove #6B9BEA;
@@ -85,6 +85,54 @@
 	margin: 5px;
 	border: 2px solid black;
 	width: 25%;
+}
+/*Commentaire*/
+.boxe {
+	background-color: rgba(0,0,0,.8);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 500;
+}
+.boxe > .content {
+	width: 50vw;
+	padding: 25px;
+	margin-left: 25vw;
+	margin-top: 10vh;
+	background-color: white;
+	max-height: 90vh;
+	overflow-y: scroll;
+}
+.boxe > .content > .title{
+	font-size: 25px;
+	line-height: 25px;
+	text-align: center;
+	font-weight: bold;
+	border-bottom: 2px solid;
+}
+.boxe > .content > .comments > .addComment {
+	margin-top: 15px;
+	text-align: center;
+	font-weight: bold;
+}
+.boxe > .content > .comments > .addComment > textarea {
+	width: 100%;
+}
+.boxe > .content > .comments > .comment {
+	border-bottom: 2px solid;
+	padding: 15px 0;
+}
+.boxe > .content > .comments > .comment > .author {
+	font-style: italic;
+}
+.boxe > .content > .comments > .comment > .text{
+	margin-left: 15px;
+	margin-top: 15px;
+}
+.boxe > .content > .comments > .comment > .text > button {
+	float:right;
 }
 
 @media screen and (max-width:1000px){

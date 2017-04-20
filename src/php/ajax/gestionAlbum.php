@@ -18,5 +18,20 @@
 				$v = photo::Create($id, "", "", "");
 				photoDAO::Remove($v);
 			}
+		}else if($action == "addComment"){
+			if(isset($_POST['com'])){
+				include_once '../BDD/commPhotoDAO.php';
+
+				$id = $_POST['id'];
+				$idM = $_POST['idM'];
+				$com = $_POST['com'];
+
+				$v = commPhoto::create("-1", $com, "", $id, $idM);
+				commPhotoDAO::update($v);
+			}
+		} else if($action == "removeComment"){
+			include_once '../BDD/commPhotoDAO.php';
+			$v = commPhoto::create($_POST['id'], "", "", "", "");
+			commPhotoDAO::remove($v);
 		}
 	}

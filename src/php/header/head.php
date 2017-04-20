@@ -5,10 +5,12 @@
 	if(empty($_SESSION['token'])){
 		$_SESSION['token'] = "-1";
 	}
-	include_once('../php/BDD/membreDAO.php');
+	require 'php/BDD/membreDAO.php';
 	
 	if($_SESSION['token'] != "-1"){
 		$membre = membreDAO::findToken($_SESSION['token']);
+	}else {
+		$membre = membre::create("-1", "", "", "", "", "", "", "", "-1");
 	}
 	class Head {
 		public static $meta = "";
@@ -45,13 +47,13 @@
 			self::addMeta("<meta name=\"viewport\" content=\"width=device-width, user-scalable=no\">");
 			self::addMeta("<meta charset=\"utf-8\">");
 			self::addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\">");
-			self::addLink("<link href=\"../css/metro.css\" rel=\"stylesheet\">");
-			self::addLink("<link href=\"../css/nico.css\" rel=\"stylesheet\">");
+			self::addLink("<link href=\"css/metro.css\" rel=\"stylesheet\">");
+			self::addLink("<link href=\"css/nico.css\" rel=\"stylesheet\">");
 		}
 
 		public function requireConnection(){
 			if($_SESSION['token'] == "-1"){
-				header("Location: index.php");
+				header("Location: ?/index");
 				exit();
 			}
 		}

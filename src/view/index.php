@@ -1,13 +1,12 @@
 <?php
-	ini_set('display_errors', 1);
-	require('../php/BDD/eventDAO.php');
-	require('../php/BDD/idee.php');
-	include_once('../php/header/head.php');
+	require 'php/BDD/eventDAO.php';
+	require 'php/BDD/commIdeeDAO.php';
+	require 'php/header/head.php';
 	$head->setup();
-	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/Document/accueil.css\">");
+	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Document/accueil.css\">");
 	$head->setTitle('Index - BDE cesi');
 	$head->getHead();
-	require('../php/header/menu.php');
+	require 'php/header/menu.php';
 ?>
 		<section>
 			<div class="presentation">
@@ -51,7 +50,9 @@
 						</div>
 						<div class="content">
 							<div class="btns">
-								<i class="fa fa-thumbs-up" style="color:green"></i> <?= $row['Pbleu'] ?> <br> <i class="fa fa-thumbs-down" style="color:red"></i>  <?= $row['Prouge'] ?><br><i class="fa fa-comments"></i> ?
+								<i class="fa fa-thumbs-up" style="color:green" onclick="bleu('<?= $membre->id ?>', '<?= $row['ID_Idee'] ?>');"></i> <?= $row['Pbleu'] ?> <br> 
+								<i class="fa fa-thumbs-down" style="color:red" onclick="rouge('<?= $membre->id ?>', '<?= $row['ID_Idee'] ?>');"></i>  <?= $row['Prouge'] ?><br>
+								<i class="fa fa-comments" onclick="showComment('<?= $row['ID_Idee'] ?>')"></i> <?= count(commIdeeDAO::findEvent($row['ID_Idee'])) ?>
 							</div>
 							<div class="titre">
 								 <?= $row['Titre'] ?>
@@ -76,8 +77,17 @@
 			Copyright
 		</footer>
         <script>
+			function rouge(idM, id){
+				send("../php/ajax/gestionIdee.php", "action=rouge&id="+id+"&idM="+idM);
+			}
+			function bleu(idM, id){
+				send("../php/ajax/gestionIdee.php", "action=bleu&id="+id+"&idM="+idM);
+			}
+        	function showComment(id){
+        		window.location.assign("?/idees/id="+id);
+        	}
         	function showAll(){
-        		window.location.assign("idees.php");
+        		window.location.assign("?/idees");
         	}
         </script>
 	</body>

@@ -1,21 +1,23 @@
-<script src="../js/jquery.js"></script>
-<script src="../js/site.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/site.js"></script>
 
 <div class="background">
 	<div class="container"></div>
 </div>
 <nav>
 	<div class="link">
-		<a href="index.php"><div>Accueil</div></a>
-		<a href="events.php"><div>Evènement</div></a>
-		<span class="logo"><img src="../img/logo.png"></span>
-		<a href="asso.php"><div>Association</div></a>
-		<a href="shop.php"><div>Boutique</div></a>
+		<a href="?/index"><div>Accueil</div></a>
+		<a href="?/events"><div>Evènement</div></a>
+		<span class="logo"><img src="img/logo.png"></span>
+		<a href="?/assos"><div>Association</div></a>
+		<a href="?/shop"><div>Boutique</div></a>
 		<?php
 			if($_SESSION['token'] == "-1"){
 				echo '<a class="connect" onclick="showConnection();"><div><i class="fa fa-user"></i></div></a>';
 			} else {
-				echo '<a class="connect" href="profile.php"><div><i class="fa fa-user"></i></div></a>';
+				echo '<a class="connect" href="?/profile">
+						<div style="background-image:url(\''.$membre->avatar.'\'); background-size:contain; width:50%; margin-left: 25%; background-repeat:no-repeat;height:100%;"></div>
+					</a>';
 			}
 		?>
 
@@ -65,13 +67,13 @@
 		}while(!email.match(/^[a-z]+[a-z.]*@(via)?cesi\.fr/));
 
 		var data = "action=inscription&name="+name+"&password="+password+"&email="+email;
-		send('../php/ajax/gestionConnection.php', data);
+		send('php/ajax/gestionConnection.php', data);
 	}
 	function connection(){
 		var name = $("input[name=name]").val();
 		var password = $("input[name=password]").val();
 		var data = "action=connection&name="+name+"&password="+password;
-		send('../php/ajax/gestionConnection.php', data);
+		send('php/ajax/gestionConnection.php', data);
 	}
 </script>
 <?php 

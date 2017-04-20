@@ -1,11 +1,11 @@
 <?php
-	require('../php/BDD/eventDAO.php');
-	include_once('../php/header/head.php');
+	require 'php/BDD/eventDAO.php';
+	require 'php/header/head.php';
 	$head->setup();
-	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/Document/event.css\">");
+	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Document/event.css\">");
 	$head->setTitle('Evenement - BDE cesi');
 	$head->getHead();
-	require('../php/header/menu.php');
+	require 'php/header/menu.php';
 ?>
 	<div class="body">
 		<section class="idees">
@@ -51,7 +51,7 @@
 						</div>
 						 <?= $row->description ?>
 						 <br />
-						 <a href="albums.php?id=<?= $row->id ?>">Voir l'album</a>
+						 <a href="?/albums/id=<?= $row->id ?>" class="button" style="height:35px;padding-top: 0;">Voir l'album <i class="fa fa-arrow-right"></i></a>
 					</div>
 					<div class="formulaire">
 					  	<?php
@@ -82,8 +82,6 @@
 	<footer>
 		Copyright
 	</footer>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/site.js"></script>
     <script>
     	function save(){
     		var titre = $("input[name=titre]").val();
@@ -93,7 +91,7 @@
     		var formulaire = $("textarea[name=formulaire]").val();
     		var description = $("textarea[name=description]").val();
     		var data = "action=add&titre="+titre+"&calendrier="+calendrier+"&description="+description+"&id="+id+"&lieu="+lieu+"&formulaire="+formulaire;
-    		send("../php/ajax/gestionEvent.php", data);
+    		send("php/ajax/gestionEvent.php", data);
     	}
     	function modif(id, calendrier, titre, description, lieu, formulaire){
     		$("input[name=titre]").val(titre);
@@ -112,10 +110,10 @@
     		$("textarea[name=description]").val("");
     	}
     	function remove(id){
-    		send("../php/ajax/gestionEvent.php", "action=remove&id="+id);
+    		send("php/ajax/gestionEvent.php", "action=remove&id="+id);
     	}
     	function inscript(idE, idM){
-    		send("../php/ajax/gestionEvent.php", "action=inscription&idM="+idM+"&idE="+idE);
+    		send("php/ajax/gestionEvent.php", "action=inscription&idM="+idM+"&idE="+idE);
     	}
     </script>
 </body>
