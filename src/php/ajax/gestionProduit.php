@@ -1,9 +1,8 @@
 <?php
-	ini_set('display_errors', 1);
 	if(isset($_POST['action'])){
 		
 		$action = $_POST['action'];
-		if($action == "add" || $action == "edit"){
+		if($action == "add"){
 			if(isset($_POST['nom']) && isset($_POST['url']) && isset($_POST['prix']) && isset($_POST['description'])){
 				$nom = $_POST['nom'];
 				$url = $_POST['url'];

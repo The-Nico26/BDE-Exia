@@ -1,7 +1,7 @@
 <?php
 
+    require 'album.php';
 	include_once ('item.php');
-	include_once ('album.php');
 	
 	
 	class albumDAO implements item
@@ -19,8 +19,8 @@
         		$sql .= " WHERE ID_Album = ?";
         	}
         	foreach(server::getRows($sql, $params) as $row){
-        		$album = album::create($row['ID_Album'], $row['Titre'], $row['Description']);
-        		array_push($resultat, $album);
+        		$a = album::create($row['ID_Album'], $row['Titre'], $row['Description']);
+        		array_push($resultat, $a);
         	}
         	
         	return $resultat;
@@ -39,12 +39,11 @@
         {
         	if(empty($album)) return;
         	var_dump(albumDAO::find($album->id));
-        	echo "<br>".$album->id."<br>";
         	
         	if(count(albumDAO::find($album->id)) != 0){
-        		server::actionRow("UPDATE Album SET Titre = ? WHERE ID_Album = ?", $album->titre, $album->description, $album->id);
+        		server::actionRow("UPDATE Album SET Titre = ?, Description = ? WHERE ID_Album = ?", $album->titre, $album->description, $album->id);
         	} else {
-        		server::actionRow("INSERT INTO Produit VALUES('', ?, ?)", $album->titre, $album->description);
+        		server::actionRow("INSERT INTO Album VALUES(null, ?, ?)", $album->titre, $album->description);
         	}
         }
 	}

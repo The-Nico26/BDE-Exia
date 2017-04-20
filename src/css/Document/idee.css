@@ -1,33 +1,151 @@
-.back{
-	background-color: rgba(255,255,255,.7);
-	height:12pc;
+/*---------------------------------------------------------------------------*/
+/*--------------------------Idees--------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+.body{
+	margin: 0 5vw;
+	margin-top: -8vh;
 }
-
-.titre{
+.idees > .idee{
 	position:relative;
-	margin-top: -2vh;
-	height:3vh;
-	line-height:10vh;
-	font-size: 18pt;
-	margin-left: 25vw;
-	width:50vw;
-	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	width:90vw;
 }
-
-.corpus{
+.idees > .idee > .numero {
+	color: black;
+	height:50px;
+}
+.idee > .numero > .numero_left {
+	position: absolute;
+	border-left: 2px groove #CC615A;
+	border-bottom: 2px groove #CC615A;
+	height: 50px;
+	width: 50px;
+	background-color: rgba(255,255,255,1);
+	transform: rotate(45deg) translateY(18px) translateX(-18px);
+	z-index:-200;
+}
+.idee > .numero > .numero_center{
+	position: absolute;
+	border-top: 2px groove #CC615A;
+	border-bottom: 2px groove #6B9BEA;
+	height: 70px;
+	background-color: rgba(255,255,255,1);
+	transform: translateY(-10px);
+  	white-space: nowrap;
+	z-index:100;
+}
+.idee > .numero > .numero_center > .numero_text{
+	text-align: center;
+	font-weight: bold;
+	height: 100%;
+	line-height: 65px;
+	font-size:18pt;
+	background-color: rgba(255,255,255,1);
+	z-index:100;
+}
+.idee > .numero > .numero_center > .numero_right{
+	position: absolute;
+	background-color: rgba(255,255,255,1);
+	z-index:-200;
+	height: 49px;
+	width: 50px;
+	border-top: 2px groove #CC615A;
+	border-right: 2px groove #6B9BEA;
+	transform: rotate(45deg) translateY(24px) translateX(-11px);
+}
+.idee > .numero > .numero_center > .ext_numero_right{
+	position: absolute;
+	height: 33px;
+	width: 90vw;
+	z-index: -300;
+	top: 34px;
+	left: 0;
+	border-top: 2px groove #6B9BEA;
+	border-right: 2px groove #6B9BEA;
+	background-color: rgba(255,255,255,.8);
+}
+.idee > .content {
+	background-color: rgba(255,255,255,.8);
+	position:relative;
+	border-left: 2px groove #6B9BEA;
+	border-right: 2px groove #6B9BEA;
+	border-bottom: 2px groove #6B9BEA;
+	margin-top: 9px;
+	padding: 0 5vw;
+	padding-top:30px;
+	line-height: 18pt;
+	text-align:justify;
+}
+.idee > .content > .titre {
 	position: relative;
-	margin : 3pc 25%;
 	text-align: center;
-	background-color:white;
-	border: 2px groove #6B9BEA;
-	min-height: 10pc;
-	white-space: pre-line;
-	
+	font-weight:bold;
+	font-size:15pt;
+	margin-bottom:20px;
+}
+.idee > .content > .btns {
+	float:right;
+	margin-top:-30px;
+}
+.titre > .text {
+	display: inline-block;
+	width: 200px;
+	text-align: center;
+}
+.add {
+	text-align: center;
 }
 
-.btns{
-	position : relative;
-	text-align: center;
-	margin-top: -2pc;
+input, textarea {
+	width: 50%;
 }
 
+/*Commentaire*/
+.box {
+	position: absolute;
+	background-color: rgba(0,0,0,.8);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 500;
+}
+.box > .content {
+	width: 50vw;
+	padding: 25px;
+	margin-left: 25vw;
+	margin-top: 10vh;
+	background-color: white;
+}
+.box > .content > .title{
+	font-size: 25px;
+	line-height: 25px;
+	text-align: center;
+	font-weight: bold;
+	border-bottom: 2px solid;
+}
+
+.box > .content > .comments > .addComment {
+	margin-top: 15px;
+	text-align: center;
+	font-weight: bold;
+}
+.box > .content > .comments > .addComment > textarea {
+	width: 100%;
+}
+.box > .content > .comments > .comment {
+	border-bottom: 2px solid;
+	padding: 15px 0;
+}
+.box > .content > .comments > .comment > .author {
+	font-style: italic;
+}
+.box > .content > .comments > .comment > .text{
+	margin-left: 15px;
+	margin-top: 15px;
+}
+.box > .content > .comments > .comment > .text > button {
+	float:right;
+}

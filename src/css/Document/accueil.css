@@ -67,6 +67,8 @@ section{
 .idees > .idee{
 	position:relative;
 	margin-top: 25px;
+	margin-bottom: 25px;
+	width:76vw;
 }
 .idees > .idee > .numero {
 	color: black;
@@ -80,6 +82,7 @@ section{
 	width: 50px;
 	background-color: rgba(255,255,255,1);
 	transform: rotate(45deg) translateY(18px) translateX(-18px);
+	z-index:-200;
 }
 .idee > .numero > .numero_center{
 	position: absolute;
@@ -89,6 +92,7 @@ section{
 	background-color: rgba(255,255,255,1);
 	transform: translateY(-10px);
   	white-space: nowrap;
+	z-index:100;
 }
 .idee > .numero > .numero_center > .numero_text{
 	text-align: center;
@@ -96,7 +100,8 @@ section{
 	height: 100%;
 	line-height: 65px;
 	font-size:18pt;
-	z-index:200;
+	background-color: rgba(255,255,255,1);
+	z-index:100;
 }
 .idee > .numero > .numero_center > .numero_right{
 	position: absolute;
@@ -108,16 +113,28 @@ section{
 	border-right: 2px groove #6B9BEA;
 	transform: rotate(45deg) translateY(24px) translateX(-11px);
 }
+.idee > .numero > .numero_center > .ext_numero_right{
+	position: absolute;
+	height: 33px;
+	width: 76vw;
+	z-index: -300;
+	top: 34px;
+	left: 0;
+	border-top: 2px groove #6B9BEA;
+	border-right: 2px groove #6B9BEA;
+	background-color: rgba(255,255,255,.8);
+}
 .idee > .content {
 	background-color: rgba(255,255,255,.8);
 	position:relative;
-	border: 2px groove #6B9BEA;
-	margin-top:-25px;
+	border-left: 2px groove #6B9BEA;
+	border-right: 2px groove #6B9BEA;
+	border-bottom: 2px groove #6B9BEA;
+	margin-top: 9px;
 	padding: 0 5vw;
 	padding-top:30px;
 	line-height: 18pt;
 	text-align:justify;
-	z-index:-1;
 }
 .idee > .content > .titre {
 	position: relative;

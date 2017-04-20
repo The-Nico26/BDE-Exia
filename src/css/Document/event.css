@@ -1,102 +1,107 @@
-.title {
-	position:absolute;
-	background-color:white;
-	border: 2px groove #6B9BEA;
-	margin-top: -5vh;
-	height:10vh;
-	line-height:10vh;
-	font-size: 25pt;
-	margin-left: 25vw;
-	width:50vw;
-	text-align:center;
+input, textarea {
+	width: 100%;
+	margin-bottom: 15px;
 }
-.title > .tileheigt{
-	height:5vh;
+button {
+	width: 25%;
+	margin-bottom: 15px;
+	border: 2px groove #CC615A;
+	background-color: white;
+}
+/*---------------------------------------------------------------------------*/
+/*--------------------------Idees--------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+.body{
+	margin:0 5vw;
+	margin-bottom: 25px;
+}
+.idees > .idee{
+	position:relative;
+	margin-top: 25px;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 75px;
 }
 
-.req{
-	position:relative;
-	background-color:white;
-	border: 2px groove #6B9BEA;
-	margin-top: -16vh;
-	height:12vh;
-	line-height:10vh;
-	font-size: 25pt;
-	margin-left: 25vw;
-	width:50vw;
+.idee > .numero {
+	color: black;
+}
+.idee > .numero > .numero_left {
+	position: absolute;
+	border-left: 2px groove #CC615A;
+	border-bottom: 2px groove #CC615A;
+	height: 50px;
+	width: 50px;
+	left: 40vw;
+	background-color: rgba(255,255,255,1);
+	transform: rotate(45deg) translateY(18px) translateX(-18px);
+}
+.idee > .numero > .numero_center{
+	position: absolute;
+	border-top: 2px groove #CC615A;
+	border-bottom: 2px groove #6B9BEA;
+	height: 70px;
+	background-color: rgba(255,255,255,1);
+	transform: translateY(-10px);
+  	white-space: nowrap;
+	left: 40vw;
+  	width: 200px;
 	text-align: center;
-	
-	
+}
+.idee > .numero > .numero_center > .numero_text{
+	font-weight: bold;
+	line-height: 65px;
+	font-size:18pt;
+	z-index:200;
+}
+.idee > .numero > .numero_center > .numero_right{
+	position: absolute;
+	background-color: rgba(255,255,255,1);
+	z-index:-200;
+	height: 49px;
+	width: 50px;
+	border-top: 2px groove #CC615A;
+	border-right: 2px groove #6B9BEA;
+	transform: rotate(45deg) translateY(24px) translateX(-11px);
+	left:200px;
+}
+.idee > .content, .idee > .formulaire {
+	flex: 1;
+	margin: 0 15px;
+	margin-top: 70px;
+	background-color: rgba(255,255,255,.8);
+	position:relative;
+	border: 2px groove #6B9BEA;
+	padding: 0 2vw;
+	padding-top:30px;
+	line-height: 18pt;
+	text-align:justify;
+}
+.idee > .content {
+	min-width: 70vw;
+}
+.idee > .content > .titre {
+	position: relative;
+	text-align: center;
+	font-weight:bold;
+	font-size:15pt;
+	margin-bottom:20px;
+}
+.idee > .content > .btns {
+	float:right;
+	margin-top:-20px;
+}
+.btns > button, .idee > .formulaire > button {
+	width: 100%;
 }
 
 /*---------------------------------------------------------------------------*/
 /*-------------------------------Box-----------------------------------------*/
 /*---------------------------------------------------------------------------*/
-
-.box{
-	display:flex;
-	margin-top: 10vh;
-	margin-bottom: 5vh;
-	padding: 0 10vw;
-}
-.box > .section, .box > .formulaire{
-	flex: 1;
-	border: 2px groove;
-	margin: 0 15px;
-}
-/*
-.box > .section {
-	min-width: 40vw;
-}
-*/
-
-/*---------------------------------------------------------------------------*/
-/* Tu peut continuer maintenant */
-/*---------------------------------------------------------------------------*/
-.box > .section > .text{
-	white-space: pre-line;
-	margin-left: 1pc;
-	width: 100%;
-}
-.box > .section > .titre{
-	font-size: 14pt;
-	width:50vw;
-	text-align:center;
-}
-.box > .formulaire > .cont{
-	flex: 1;
-	margin: 10px;
-}
-.box > .sflex{
-	height : 50%;
+.idee > .add {
+	text-align: center;
 	width: 50%;
-	margin: 10px;
-	border: 2px solid;
-	display : flex;
-	justify-content: space-around;
-}
-
-.box > .flex /*> .right*/{
-	display : flex;
-	flex-direction: column;
-}
-
-.box > .btns{
-	position: relative;
-	float: right;
-}
-
-.box > .flex > .right > .container{
-	border: 2px solid black;
-	background-color: rgba(255,255,255,.7);
-	color:black;
-	padding: 5px;
-	height : 50%;
-	width: 70%;
-	display: flex;
-}
-
-.box > .sectio > .img{
-	height : 50%;
-	width: 50%;
+	margin-top: -10vh;
+	margin-left: 12.5%;
+	margin-right: 12.5%;
 }

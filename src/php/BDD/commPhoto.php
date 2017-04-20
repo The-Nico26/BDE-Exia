@@ -5,16 +5,20 @@
 		public $id;
 		public $description;
 		public $temps;
+		public $idPhoto;
+		public $idMembre;
+
 		
-		
-		function create($id, $description, $temps)
+		static function create($id, $description, $temps, $idPhoto, $idMembre)
 		{
-			$commPhoto = new comPhoto();
+			$commPhoto = new commPhoto();
 			
 			$commPhoto->id = $id;
 			$commPhoto->description = $description;
-			$commPhoto->temps= $temps;
-			
+			$commPhoto->temps = $temps;
+			$commPhoto->idPhoto = $idPhoto;
+			$commPhoto->idMembre = $idMembre;
+
 			return $commPhoto;
 		}
 	}

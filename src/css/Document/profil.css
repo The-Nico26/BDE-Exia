@@ -45,6 +45,7 @@ button {
 	width: 40vw;
 	position: relative;
 	margin-bottom: 15px;
+	background-color: white;
 }
 .profil > .info {
 	padding-top: 15px;

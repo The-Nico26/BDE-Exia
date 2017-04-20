@@ -8,8 +8,9 @@
 		public $formulaire;
 		public $calendrier;
 		public $lieu;
-		
-		function create($id, $titre, $description, $formulaire, $calendrier, $lieu)
+		public $idAlbums;
+
+		static function create($id, $titre, $description, $formulaire, $calendrier, $lieu, $idAlbums)
 		{
 			$event = new event();
 		
@@ -19,6 +20,7 @@
 			$event->formulaire = $formulaire;
 			$event->calendrier = $calendrier;
 			$event->lieu = $lieu;
+			$event->idAlbums = $idAlbums;
 			
 			return $event;
 		}

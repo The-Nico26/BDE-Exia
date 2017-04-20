@@ -4,7 +4,7 @@
     	
     	public static function connexion(){
     		try {
-				self::$pdo = new PDO('mysql:host=localhost;dbname=bde;charset=utf8', 'root', '');
+				self::$pdo = new PDO('mysql:host=mysql;dbname=bde;charset=utf8', 'bde', 'cesi');
 				self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
 			catch (Exception $e){
@@ -18,10 +18,11 @@
     	
     	public static function getRows($sql, ...$params){
     		self::connexion();
-        		
-        		if(is_array($params[0])){
-        			$params = $params[0];
-        		}
+        		if(count($params) != 0){
+            		if(is_array($params[0])){
+            			$params = $params[0];
+            		}
+                }
         		
 	    		$t = self::$pdo->prepare($sql);
 	    		if($params != null){

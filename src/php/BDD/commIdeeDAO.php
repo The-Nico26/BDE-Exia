@@ -18,24 +18,33 @@
         		$sql .= " WHERE ID_CommIdee = ?";
         	}
         	foreach(server::getRows($sql, $params) as $row){
-        		$commIdee = commIdeet::create($row['ID_CommIdee'], $row['Description'], $row['Temps']);
+        		$commIdee = commIdee::create($row['ID_CommIdee'], $row['Description'], $row['Temps'], $row['ID_Idee'], $row['ID_Membre']);
         		array_push($resultat, $commIdee);
         	}
         	
         	return $resultat;
         }
         
+        static function remove($comm)
+        {
+            if(empty($comm)) return;
+            
+            server::actionRow("DELETE FROM CommIdee WHERE ID_CommIdee = ?", $comm->id);
+        }
         
-        function update($commIdee)
+        static function findEvent($id){
+            return server::getRows("SELECT * FROM CommIdee WHERE ID_Idee = ?", $id);
+        }
+
+        static function update($commIdee)
         {
         	if(empty($commIdee)) return;
-        	var_dump(commIdeeDAO::find($commIdee->id));
-        	echo "<br>".$commIdee->id."<br>";
         	
         	if(count(commIdeeDAO::find($commIdee->id)) != 0){
-        		server::actionRow("UPDATE CommIdee SET Description = ?, temps = ? WHERE ID_CommIdee = ?", $commIdee->description, $commIdee->temps, $commIdee->id);
+        		server::actionRow("UPDATE CommIdee SET Description = ? WHERE ID_CommIdee = ?", $commIdee->description, $commIdee->id);
+
         	} else {
-        		server::actionRow("INSERT INTO Produit VALUES('', ?, ?, ?, ?)", $commIdee->description, $commIdee->temps);
+        		server::actionRow("INSERT INTO CommIdee VALUES(null, ?, NOW(), ?, ?)", $commIdee->description, $commIdee->idEvent, $commIdee->idMembre);
         	}
         }
 	}

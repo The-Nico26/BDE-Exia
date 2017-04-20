@@ -8,9 +8,9 @@
 		public $pbleu;
 		public $prouge;
 		public $calendrier;
+		public $idMembre;
 		
-		
-		function create ($id, $titre, $description, $pbleu, $prouge)
+		static function create ($id, $titre, $description, $pbleu, $prouge, $calendrier, $idMembre)
 		{
 			$idee = new idee();
 			
@@ -20,7 +20,8 @@
 			$idee->pbleu = $pbleu;
 			$idee->prouge = $prouge;
 			$idee->calendrier = $calendrier;
-			
+			$idee->idMembre = $idMembre;
+
 			return $idee;
 		}
 	}
