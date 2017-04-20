@@ -1,8 +1,8 @@
 <?php
+	require 'php/header/head.php';
 	require 'php/BDD/albumDAO.php';
 	require 'php/BDD/photoDAO.php';
 	require 'php/BDD/commPhotoDAO.php';
-	require 'php/header/head.php';
 	$head->setup();
 	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Document/albums.css\">");
 	$head->setTitle('Albums - BDE cesi');

@@ -1,7 +1,11 @@
 <?php
+	if(!$ROUTE){
+		header("Location: ../?/index");
+		exit();
+	}
+	require 'php/header/head.php';
 	require 'php/BDD/produitDAO.php';
 	require 'php/BDD/panierDAO.php';
-	require 'php/header/head.php';
 	$head->setup();
 	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Document/panier.css\">");
 	$head->setTitle('Panier - BDE cesi');

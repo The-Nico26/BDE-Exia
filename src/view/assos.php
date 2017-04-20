@@ -1,6 +1,10 @@
 <?php
-	require 'php/BDD/assoDAO.php';
+	if(!$ROUTE){
+		header("Location: ../?/index");
+		exit();
+	}
 	require 'php/header/head.php';
+	require 'php/BDD/assoDAO.php';
 	$head->setup();
 	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Document/asso.css\">");
 	$head->setTitle('Association - BDE cesi');

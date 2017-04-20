@@ -1,6 +1,6 @@
 <?php
 if(count($_GET) > 0){
-
+	$ROUTE = true;
 	$url = $_SERVER["QUERY_STRING"];
 	$GET = "";
 

@@ -1,4 +1,8 @@
 <?php
+	if(!$ROUTE){
+		header("Location: ../?/index");
+		exit();
+	}
 	if (session_status() == PHP_SESSION_NONE) {
 	    session_start();
 	}
