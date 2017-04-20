@@ -18,7 +18,7 @@
         		$sql .= " WHERE ID_Photo = ?";
         	}
         	foreach(server::getRows($sql, $params) as $row){
-        		$photo = Photo::create($row['ID_Photo'], $row['URL']);
+        		$photo = Photo::create($row['ID_Photo'], $row['URL'], $row['Titre'], $row['ID_Album']);
         		array_push($resultat, $photo);
         	}
         	
@@ -37,13 +37,12 @@
         static function update($photo)
         {
         	if(empty($photo)) return;
-        	var_dump(ProduitDAO::find($photo->id));
-        	echo "<br>".$photo->id."<br>";
-        	
-        	if(count(ProduitDAO::find($photo->id)) != 0){
-        		server::actionRow("UPDATE Photo SET URL = ? WHERE ID_Produit = ?", $photo->url, $photo->id);
+        	echo $photo->idAlbum."ee<br>";
+
+        	if(count(PhotoDAO::find($photo->id)) != 0){
+        		server::actionRow("UPDATE Photo SET URL = ?, titre = ? WHERE ID_Produit = ?", $photo->url, $photo->nom, $photo->id);
         	} else {
-        		server::actionRow("INSERT INTO Produit VALUES('', ?)", $photo->url);
+        		server::actionRow("INSERT INTO Photo VALUES (null, ?, ?, ?)", $photo->url, $photo->nom, $photo->idAlbum);
         	}
         }
 	}

@@ -9,6 +9,35 @@
 	require('../php/header/menu.php');
 ?>    		
  
+        <div class="body">
+            <section class="idees">
+                <?php
+                    foreach(Server::getRows("SELECT * FROM Idee", null) as $row){
+                ?>
+                    <div class="idee">
+                        <div class="numero">
+                            <div class="numero_left"></div>
+                            <div class="numero_center">
+                                <span class="numero_text"><?= $row['Calendrier'] ?></span>
+                                <span class="numero_right"></span>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="btns">
+                                <i class="fa fa-thumbs-up" style="color:green"></i> <?= $row['Pbleu'] ?> <br> <i class="fa fa-thumbs-down" style="color:red"></i>  <?= $row['Prouge'] ?><br><i class="fa fa-comments"></i> ?
+                            </div>
+                            <div class="titre">
+                                 <?= $row['Titre'] ?>
+                            </div>
+                             <?= $row['Description'] ?>
+                        </div>
+                    </div>
+                <?php
+                    }
+                ?>
+            </section>
+        </div>
+
 	<div class="titre">
     			
     	Titre de l'idée
@@ -26,10 +55,10 @@
 					?>
 						<section>
 				    		<div class="titre">
-				    			<?= htmlspecialchars($_POST["title"]); ?>
+				    			<?= $_POST["title"] ?>
 				    		</div>
 				    		<div class="corpus">
-				    			<?= htmlspecialchars($_POST["corpus"]); ?>
+				    			<?= $_POST["corpus"] ?>
 				    		</div>
 				    	</section>
 					<?php
@@ -40,7 +69,6 @@
     		<footer>
 			Copyright
 		</footer>
-        <script src="../js/live.js"></script>
         <script>
         	function save(){
         		var title = $("input[name=title]").val();

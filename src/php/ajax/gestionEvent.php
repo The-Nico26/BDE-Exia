@@ -30,6 +30,8 @@
 				
 				$v = eventDAO::Find($id)[0];
 				$p = albumDAO::Find($v->idAlbums);
+				server::actionRow("DELETE FROM participer WHERE ID_Event = ?", $id);
+				server::actionRow("DELETE FROM Photo WHERE ID_Album = ?", $v->idAlbums);
 				albumDAO::Remove($p);
 				eventDAO::Remove($v);
 			}

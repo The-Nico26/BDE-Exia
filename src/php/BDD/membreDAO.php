@@ -1,84 +1,60 @@
 <?php
 	include_once ('item.php');
 	include_once ('membre.php');
-	
-	class membreDAO extends item
+	if (session_status() == PHP_SESSION_NONE) {
+	    session_start();
+	}
+
+	class membreDAO implements item
 	{
-        public $table = null;
-
-        function __construct($t)
+        static function find(... $params)	
         {
-            self::$table = $t;
-        }
-
-        /*function find($champ, $condition)
-        {
-        	$resultatBDD = server::getRows("SELECT * FROM Membre WHERE ? = ?", array($champ, $condition) );
-        	
-        	$resultat = [];
-        	
-        	foreach ($resultatBDD as $ligne)
-        	{
-        		$nouveauMembre = new self(
-        							$ligne["Prenom"],
-        							$ligne["Nom"],
-        							$ligne["Role"],
-        							$ligne["Mail"],
-        							$ligne["PassWord"]);
-        						$nouveauMembre->id = $ligne["ID_Membre"];
-        		array_push($resultat, $nouveauMembre);
-        	}
-        }*/
-        
-        
-        function find(... $params)	
-        {
-			if(empty($params))
-			{
-				$param = null;
-			}
 			$resultat = [];
-			$sql = "SELECT * FROM Membre"
-			
+			$sql = "SELECT * FROM Membre";
+			if(empty($params)){
+				$params = null;
+			}
 			if($params != null)
 			{
-				$sql = "SELECT * FROM Membre WHERE ? = ?";
+				$sql .= " WHERE ID_Membre = ?";
 			}
 			
 			foreach(server::getRows($sql, $params) as $row)
 			{
-				$membre = membre::create($row['ID_Membre'], $row['Prenom'], $row['Nom'], $row['Mail'], $row['PassWord'], $row['Promotion'], $row['Token']);
+				$membre = membre::create($row['ID_Membre'], $row['Prenom'], $row['Nom'], $row['Role'], $row['Mail'], $row['Avatar'], $row['PassWord'], $row['Promotion'], $row['Token']);
 				array_push($resultat, $membre);
 			}
 			
 			return $resultat;
 		}
 		
-		
-    	 function remove($membre)
+		static function findToken($token){
+			return membreDAO::find(server::getRows('SELECT * FROM Membre WHERE Token = ?', $token)[0]['ID_Membre'])[0];
+		}
+
+    	static function remove($membre)
         {
         	if(empty($membre)) return;
         	server::actionRow('DELETE FROM Membre WHERE ID_Membre = ?', $membre->$id);
         }
 
 
-        function update($membre)
+        static function update($membre)
         {
-    		 if(empty($membre)) return;
-    		 var_dump(ProduitDAO::find($membre->id));
-    		 echo "<br>".$membre->id."<br>";
+    		if(empty($membre)) return;
         
-    		 if(count(membreDAO::find($membre->id)) != 0)
+    		if(count(membreDAO::find($membre->id)) != 0)
 			{
-    		  	server::actionRow("UPDATE Membre SET Prenom = ?, Nom = ?, Role = ?, Mail = ?, PassWord = ?, Promotion = ?, Token = ? WHERE ID_Membre = ?", $membre->prenom, $membre->nom, $membre->role, $membre->mail, $membre->passWord, $membre->promotion, $membre->token, $membre->id);
+				$_SESSION['token'] = sha1($membre->prenom);
+				if($membre->password != "")
+    		  		server::actionRow("UPDATE Membre SET Prenom = ?, Nom = ?, Role = ?, Mail = ?, Avatar = ?, PassWord = ?, Promotion = ?, Token = ? WHERE ID_Membre = ?", $membre->prenom, $membre->nom, $membre->role, $membre->mail, $membre->avatar, md5(sha1(md5($membre->passWord))), $membre->promotion, sha1($membre->prenom), $membre->id);
+    		  	else
+    		  		server::actionRow("UPDATE Membre SET Prenom = ?, Nom = ?, Role = ?, Mail = ?, Avatar = ?, Promotion = ?, Token = ? WHERE ID_Membre = ?", $membre->prenom, $membre->nom, $membre->role, $membre->mail,$membre->avatar, $membre->promotion, sha1($membre->prenom), $membre->id);
     		}
         	else
         	{
-        		server::actionRow("INSERT INTO Membre VALUES ('', ?, ?, ?, ?, ?, ?, ?)", $membre->prenom, $membre->nom, $membre->role, $membre->mail, $membre->passWord, $membre->promotion, $membre->token);
+        		server::actionRow("INSERT INTO Membre VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)", $membre->prenom, $membre->nom, $membre->role, $membre->mail, $membre->avatar, $membre->passWord, $membre->promotion, $membre->token);
         	}
         
         }
-        
-        
-        
 	}

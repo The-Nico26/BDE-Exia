@@ -28,7 +28,7 @@
 					<?php
 						foreach(Server::getRows("SELECT * FROM Event LIMIT 0, 5", null) as $row){
 						?>	
-							<a href="event.php?id=<?= $row['ID_Event'] ?>" class="link"><?= $row['Titre'] ?></a>
+							<a href="events.php?id=<?= $row['ID_Event'] ?>" class="link"><?= $row['Titre'] ?></a>
 						<?php
 						}
 					?>
@@ -70,8 +70,6 @@
 		<footer>
 			Copyright
 		</footer>
-        <script src="../js/jquery.js"></script>
-        <script src="../js/metro.js"></script>
         <script>
         	function showAll(){
         		window.location.assign("idees.php");

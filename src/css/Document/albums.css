@@ -21,7 +21,26 @@
 	z-index: 100;
 }
 .addImage {
-	
+	margin-top : 5vh;
+	padding: 2vh 0;
+	line-height: 25pt;
+	padding-left: 5vw;
+	background-color: white;
+	text-align: center;
+}
+.addImage > .text {
+	width: 150px;
+	display:inline-block;
+	margin-top: 15px;
+	text-align: right;
+}
+.addImage > input {
+	width: 50vw;
+}
+.addImage > button {
+	width: 50vw;
+	margin-top: 15px;
+	margin-left: 155px;
 }
 .photos {
 	display:flex;
