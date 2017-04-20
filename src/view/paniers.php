@@ -1,12 +1,12 @@
 <?php
-	require('../php/BDD/produitDAO.php');
-	require('../php/BDD/panierDAO.php');
-	include_once('../php/header/head.php');
+	require 'php/BDD/produitDAO.php';
+	require 'php/BDD/panierDAO.php';
+	require 'php/header/head.php';
 	$head->setup();
-	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/Document/panier.css\">");
+	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Document/panier.css\">");
 	$head->setTitle('Panier - BDE cesi');
 	$head->getHead();
-	require('../php/header/menu.php');
+	require 'php/header/menu.php';
 ?>
 		<section class="tileheigt">
 			<div class="title">
@@ -46,7 +46,7 @@
 		</footer>
 		<script>
         	function remove(id){
-        		send("../php/ajax/gestionPanier.php", "action=remove&id="+id);
+        		send("php/ajax/gestionPanier.php", "action=remove&id="+id);
         	}
 		</script>
 	</body>

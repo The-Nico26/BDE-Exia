@@ -1,12 +1,11 @@
 <?php
-ini_set('display_errors', 1);
-include_once('../php/header/head.php');
+require 'php/header/head.php';
 $head->setup();
-$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/Document/profil.css\">");
+$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Document/profil.css\">");
 $head->setTitle('Profil - BDE cesi');
 $head->getHead();
 $head->requireConnection();
-require('../php/header/menu.php');
+require 'php/header/menu.php';
 ?>
 
         <section class="tileheigt">
@@ -54,10 +53,10 @@ require('../php/header/menu.php');
                 var id = $("input[name=id]").val();
 
                 var data = "action=edit&nom="+nom+"&prenom="+prenom+"&avatar="+avatar+"&mail="+mail+"&password="+password+"&role="+role+"&promotion="+promotion+"&token="+token+"&id="+id;
-                send("../php/ajax/gestionMembre.php", data);
+                send("php/ajax/gestionMembre.php", data);
             }
             function logout(){
-                send("../php/ajax/gestionConnection.php", "action=logout");
+                send("php/ajax/gestionConnection.php", "action=logout");
             }
         </script>
     </body>

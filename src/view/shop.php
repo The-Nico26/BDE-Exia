@@ -1,12 +1,12 @@
 <?php
-	require('../php/BDD/produitDAO.php');
-	require('../php/BDD/panierDAO.php');
-	include_once('../php/header/head.php');
+	require 'php/BDD/produitDAO.php';
+	require 'php/BDD/panierDAO.php';
+	 require 'php/header/head.php';
 	$head->setup();
-	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/Document/shop.css\">");
+	$head->addLink("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/Document/shop.css\">");
 	$head->setTitle('Shop - BDE cesi');
 	$head->getHead();
-	require('../php/header/menu.php');
+	require 'php/header/menu.php';
 ?>
 
 		
@@ -17,7 +17,7 @@
 		</section>
 		
 		<section class="cate">
-			<a href="paniers.php">Quantité de produits commander : <span class="number"><?= count(PanierDAO::findMembre($membre->id)) ?></span></a>
+			<a href="?/paniers">Quantité de produits commander : <span class="number"><?= count(PanierDAO::findMembre($membre->id)) ?></span></a>
 		</section>
 		<section class="produits">
 
@@ -77,7 +77,7 @@
         		var id = $("input[name=id]").val();
         		var description = $("textarea").val();
         		var data = "action=add&nom="+nom+"&url="+url+"&prix="+prix+"&description="+description+"&id="+id;
-        		send("../php/ajax/gestionProduit.php", data);
+        		send("php/ajax/gestionProduit.php", data);
         	}
         	function modif(id, nom, url, prix, description){
         		$("input[name=nom]").val(nom);
@@ -94,10 +94,10 @@
         		$("textarea").val("");
         	}
         	function remove(id){
-        		send("../php/ajax/gestionProduit.php", "action=remove&id="+id);
+        		send("php/ajax/gestionProduit.php", "action=remove&id="+id);
         	}
         	function addPanier(idM, idP){
-        		send("../php/ajax/gestionPanier.php", "action=addPanier&idM="+idM+"&idP="+idP);
+        		send("php/ajax/gestionPanier.php", "action=addPanier&idM="+idM+"&idP="+idP);
         	}
         </script>
 	</body>

@@ -41,7 +41,7 @@
 	<section class="master">
 			<div class="photos">
 				<div class="photo" onclick="lookImg()">
-					<input type="hidden" name="idAlb" value="<?= $_GET['id'] ?>">
+					<input type="hidden" name="idAlb" value="<?= $GET['id'] ?>">
 					<?php
 					foreach(AlbumDAO::find($GET['id']) as $row){
 						$p = photoDAO::find($row->id)[0];
@@ -72,9 +72,9 @@
 		Copyright
 	</footer>
 
-<?php 
-if(isset($_GET['idP'])){
-	$ev = photoDAO::find($_GET['idP'])[0];
+<?php
+if(isset($GET['idP'])){
+	$ev = photoDAO::find($GET['idP'])[0];
 ?>
  <div class="boxe" onclick="hideComment()">
  	<div class="content">
@@ -122,7 +122,7 @@ if(isset($_GET['idP'])){
 				var url = $("input[name=url]").val();
 				var id = $("input[name=id]").val();
 				var data = "action=add&nom="+nom+"&url="+url+"&id="+id+"&idAlbum=<?= $_GET['id'] ?>";
-				send("../php/ajax/gestionAlbum.php", data);
+				send("php/ajax/gestionAlbum.php", data);
 			}
 			function modif(id, nom, url){
 				$("input[name=nom]").val(nom);
@@ -135,7 +135,7 @@ if(isset($_GET['idP'])){
 				$("input[name=id]").val("-1");
 			}
 			function remove(id){
-				send("../php/ajax/gestionAlbum.php", "action=remove&id="+id);
+				send("php/ajax/gestionAlbum.php", "action=remove&id="+id);
 			}
 		<?php } ?>
 			function changeImg(src){
@@ -149,18 +149,18 @@ if(isset($_GET['idP'])){
         		var com = $("textarea[name=comment]").val();
         		var id = $("input[name=idComment]").val();
 
-        		send("../php/ajax/gestionAlbum.php", "action=addComment&id="+id+"&com="+com+"&idM=<?= $membre->id ?>");
+        		send("php/ajax/gestionAlbum.php", "action=addComment&id="+id+"&com="+com+"&idM=<?= $membre->id ?>");
         	}
         	function removeComment(id){
-        		send("../php/ajax/gestionAlbum.php", "action=removeComment&id="+id);
+        		send("php/ajax/gestionAlbum.php", "action=removeComment&id="+id);
         	}
 			function lookImg(){
 				var idP = $("img[name=ma]").attr('id');
 				var idAlb = $("input[name=idAlb]").val();
-        		window.location.assign("albums.php?id="+idAlb+"&idP="+idP);
+        		window.location.assign("?/albums/id="+idAlb+"/idP="+idP);
 			}
 			function hideComment(){
-        		window.location.assign("albums.php?id=<?= $_GET['id'] ?>");
+        		window.location.assign("?/albums/id=<?= $GET['id'] ?>");
 			}
 			$('.content').click(function(event){
 				event.stopPropagation();
