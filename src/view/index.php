@@ -46,6 +46,7 @@
 							<div class="numero_center">
 								<span class="numero_text"><?= $row['Calendrier'] ?></span>
 								<span class="numero_right"></span>
+								<span class="ext_numero_right"></span>
 							</div>
 						</div>
 						<div class="content">
@@ -55,7 +56,11 @@
 							<div class="titre">
 								 <?= $row['Titre'] ?>
 							</div>
-							 <?= $row['Description'] ?>
+							 <?= $row['Description'] ?><br>
+							 Proposé par : <?php 
+								 $m = membreDAO::find($row['ID_Membre'])[0];
+								 echo $m->nom." ".$m->prenom."<br>";
+							 ?>
 						</div>
 					</div>
 				<?php

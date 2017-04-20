@@ -5,9 +5,9 @@
 	if(empty($_SESSION['token'])){
 		$_SESSION['token'] = "-1";
 	}
+	include_once('../php/BDD/membreDAO.php');
 	
 	if($_SESSION['token'] != "-1"){
-		include_once('../php/BDD/membreDAO.php');
 		$membre = membreDAO::findToken($_SESSION['token']);
 	}
 	class Head {

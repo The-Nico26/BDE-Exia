@@ -17,7 +17,7 @@
         		$sql .= " WHERE ID_Idee = ?";
         	}
         	foreach(server::getRows($sql, $params) as $row){
-        		$idee = idee::create($row['ID_Idee'], $row['Titre'], $row['Description'], $row['Pbleu'], $row['Prouge']);
+        		$idee = idee::create($row['ID_Idee'], $row['Titre'], $row['Description'], $row['Pbleu'], $row['Prouge'], $row['Calendrier'], $row['ID_Membre']);
         		array_push($resultat, $idee);
         	}
         	
@@ -29,7 +29,7 @@
         {
         	if(empty($idee)) return;
         	
-        	server::actionRow("DELETE FROM Idee WHERE ID_Idee = ?", $idee->$id);
+        	server::actionRow("DELETE FROM Idee WHERE ID_Idee = ?", $idee->id);
         }
 		
 		
@@ -40,9 +40,9 @@
         	echo "<br>".$idee->id."<br>";
         	
         	if(count(ideeDAO::find($idee->id)) != 0){
-        		server::actionRow("UPDATE Idee SET Titre = ?, Description = ?, Pbleu = ?, Prouge = ?, Calendrier = ? WHERE ID_Idee = ?", $idee->titre, $idee->description, $idee->pbleu, $idee->prouge, $idee->calendrier, $idee->id);
+        		server::actionRow("UPDATE Idee SET Titre = ?, Description = ?, Calendrier = ? WHERE ID_Idee = ?", $idee->titre, $idee->description, $idee->calendrier, $idee->id);
         	} else {
-        		server::actionRow("INSERT INTO Idee VALUES('', ?, ?, ?, ?, ?)", $idee->titre, $idee->description, $idee->pbleu, $idee->prouge, $idee->calendrier);
+        		server::actionRow("INSERT INTO Idee VALUES(null, ?, ?, ?, ?, ?, ?)", $idee->titre, $idee->description, $idee->pbleu, $idee->prouge, $idee->calendrier, $idee->idMembre);
         	}
         }
 	}
