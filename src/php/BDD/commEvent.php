@@ -14,6 +14,6 @@
 			$commEvent->description = $description;
 			$commEvent->temps = $temps;
 			
-			return $commeEvent;
+			return $commEvent;
 		}
 	}

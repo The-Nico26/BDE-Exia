@@ -1,9 +1,9 @@
 <?php
 
 	include_once ('item.php');
-	include_once ('commEvent');
+	include_once ('commEvent.php');
 	
-	class commEventDAO extends item
+	class commEventDAO implements item
 	{
 		 static function find(... $params)
                 {
@@ -30,20 +30,19 @@
                 {
                 	if(empty($commEvent)) return;
                 	
-                	server::actionRow("DELETE FROM CommEvent WHERE ID_CommEvent = ?", $commEvent->$id);
+                	server::actionRow("DELETE FROM CommEvent WHERE ID_CommEvent = ?", $commEvent->id);
                 }
         
-        
-        static function update($$commEvent)
+        static function update($commEvent)
         {
         	if(empty($commEvent)) return;
-        	var_dump(ProduitDAO::find($commEvent->id));
+        	var_dump(commEventDAO::find($commEvent->id));
         	echo "<br>".$commEvent->id."<br>";
         	
-        	if(count(ProduitDAO::find($commEvent->id)) != 0){
+        	if(count(commEventDAO::find($commEvent->id)) != 0){
         		server::actionRow("UPDATE CommEvent SET Description = ?, Temps = ? WHERE ID_commEvent = ?", $commEvent->description, $commEvent->temps, $commEvent->id);
         	} else {
-        		server::actionRow("INSERT INTO Produit VALUES('', ?, ?)", $p->description, $p->temps);
+        		server::actionRow("INSERT INTO Produit VALUES('', ?, ?)", $commEvent->description, $commEvent->temps);
         	}
         }
 }

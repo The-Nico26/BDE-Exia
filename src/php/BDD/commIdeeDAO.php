@@ -5,7 +5,7 @@
 	
 	class commIdeeDAO implements item
 	{
-		static function find(... $params)
+		function find(... $params)
         {
         	if(empty($params)){
         		$params = null;
@@ -25,7 +25,6 @@
         	return $resultat;
         }
         
-        
         static function remove($comm)
         {
             if(empty($comm)) return;
@@ -43,6 +42,7 @@
         	
         	if(count(commIdeeDAO::find($commIdee->id)) != 0){
         		server::actionRow("UPDATE CommIdee SET Description = ? WHERE ID_CommIdee = ?", $commIdee->description, $commIdee->id);
+
         	} else {
         		server::actionRow("INSERT INTO CommIdee VALUES(null, ?, NOW(), ?, ?)", $commIdee->description, $commIdee->idEvent, $commIdee->idMembre);
         	}

@@ -30,7 +30,7 @@
         {
         	if(empty($photo)) return;
         	
-        	server::actionRow("DELETE FROM Photo WHERE ID_Photo = ?", $photo->$id);
+        	server::actionRow("DELETE FROM Photo WHERE ID_Photo = ?", $photo->id);
         }
         
         

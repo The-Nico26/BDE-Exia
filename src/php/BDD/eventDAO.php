@@ -38,11 +38,11 @@
         
         static function update($event)
         {
-        	if(empty($event)) return;
         	var_dump(EventDAO::find($event->id));
         	
         	if(count(EventDAO::find($event->id)) != 0){
         		server::actionRow("UPDATE Event SET Titre = ?, Description = ?, Formulaire = ?, Calendrier = ?, Lieu = ? WHERE ID_Event = ?", $event->titre, $event->description, $event->formulaire, $event->calendrier, $event->lieu, $event->id);
+
         	} else {
         		server::actionRow("INSERT INTO Event VALUES(null, ?, ?, ?, ?, ?, ?)", $event->titre, $event->description, $event->formulaire, $event->calendrier, $event->lieu, $event->idAlbums);
         	}

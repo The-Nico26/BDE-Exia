@@ -42,6 +42,7 @@
         	
         	if(count(CommPhotoDAO::find($commPhoto->id)) == 0){
         		server::actionRow("INSERT INTO CommPhoto VALUES(null, ?, NOW(), ?, ?)", $commPhoto->description, $commPhoto->idPhoto, $commPhoto->idMembre);
+
         	}
         }
 	}

@@ -5,7 +5,7 @@
 		public $id;
 		public $prenom;
 		public $nom;
-		public $role;
+		public $role = "Etudiant";
 		public $mail;
 		public $passWord;
 		public $promotion;
@@ -26,7 +26,6 @@
 			$membre->token = $token;
 			$membre->promotion = $promotion;
 			$membre->avatar = $avatar;
-			
 			return $membre;
 		}
 	}

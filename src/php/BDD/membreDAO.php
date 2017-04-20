@@ -1,6 +1,7 @@
 <?php
 	include_once ('item.php');
 	include_once ('membre.php');
+
 	if (session_status() == PHP_SESSION_NONE) {
 	    session_start();
 	}
@@ -27,7 +28,6 @@
 			
 			return $resultat;
 		}
-		
 		static function findToken($token){
 			return membreDAO::find(server::getRows('SELECT * FROM Membre WHERE Token = ?', $token)[0]['ID_Membre'])[0];
 		}
@@ -35,7 +35,7 @@
     	static function remove($membre)
         {
         	if(empty($membre)) return;
-        	server::actionRow('DELETE FROM Membre WHERE ID_Membre = ?', $membre->$id);
+        	server::actionRow('DELETE FROM Membre WHERE ID_Membre = ?', $membre->id);
         }
 
 
